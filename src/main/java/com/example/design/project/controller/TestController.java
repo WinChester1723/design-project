@@ -13,4 +13,36 @@ public class TestController {
         return "index";
     }
 
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @GetMapping("/blog")
+    public String blog(){
+        return "blog";
+    }
+
+    @GetMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
+
+    @GetMapping("/portfolio")
+    public String portfolio(){
+        return "portfolio";
+    }
+
+    @GetMapping("/services")
+    public String service(){
+        return "services";
+    }
+
+    @GetMapping("/blog-details")
+    public String blogDetails(){
+        return "blog-details";
+    }
+
+
+
 }
