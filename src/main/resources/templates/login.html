@@ -23,8 +23,66 @@
     <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+
 </head>
 <body>
+<!-- Header Section Begin -->
+<header class="header">
+    <!--burger menu start-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
+                    <a th:href="@{/web/about}">About</a></li>
+                <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
+                    <a th:href="@{/web/services}">Services</a></li>
+                <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
+                    <a th:href="@{/web/contact}">Contact</a></li>
+                <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/index}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--burger finish-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a th:href="@{/web/index}"><img src="/img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__nav__option">
+                    <nav class="header__nav__menu mobile-menu">
+                        <ul>
+                            <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
+                            <li><a th:href="@{/web/blog}">Blog</a></li>
+                            <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
+                            <li><a th:href="@{/web/login}">Login</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__nav__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
+
 
 
 <!-- Footer Section Begin -->
