@@ -24,6 +24,8 @@
     <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+
 </head>
 
 <body>
@@ -34,28 +36,43 @@
 
     <!-- Header Section Begin -->
     <header class="header">
+        <!--burger menu start-->
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
+                        <a th:href="@{/web/about}">About</a></li>
+                    <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
+                        <a th:href="@{/web/services}">Services</a></li>
+                    <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
+                        <a th:href="@{/web/contact}">Contact</a></li>
+                    <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/web/index}">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--burger finish-->
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="/img/logo.png" alt=""></a>
+                        <a th:href="@{/web/index}"><img src="/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
-                                <li><a th:href="@{/web/index}">Home</a></li>
-                                <li><a th:href="@{/web/about}">About</a></li>
                                 <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                                <li><a th:href="@{/web/services}">Services</a></li>
                                 <li><a th:href="@{/web/blog}">Blog</a></li>
-                                <li class="active"><a th:href="@{/web/blog-details}">Blog Details</a></li>
-<!--                                this is signu u[\login place-->
+                                <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
                                 <li><a th:href="@{/web/login}">Login</a>
                                 </li>
-<!--                                before that place-->
-                                <li><a th:href="@{/web/contact}">Contact</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__social">

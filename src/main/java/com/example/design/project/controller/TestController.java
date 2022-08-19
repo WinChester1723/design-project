@@ -43,6 +43,15 @@ public class TestController {
         return "blog-details";
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
 
+
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 
 }

@@ -12,7 +12,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <!-- Css Styles -->
@@ -23,270 +23,294 @@
     <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="/img/logo.png" alt=""></a>
-                    </div>
+<!-- Header Section Begin -->
+<header class="header">
+    <!--burger menu start-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
+                    <a th:href="@{/web/about}">About</a></li>
+                <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
+                    <a th:href="@{/web/services}">Services</a></li>
+                <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
+                    <a th:href="@{/web/contact}">Contact</a></li>
+                <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/index}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--burger finish-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a th:href="@{/web/index}"><img src="/img/logo.png" alt=""></a>
                 </div>
-                <div class="col-lg-10">
-                    <div class="header__nav__option">
-                        <nav class="header__nav__menu mobile-menu">
-                            <ul>
-                                <li><a th:href="@{/web/index}">Home</a></li>
-                                <li><a th:href="@{/web/about}">About</a></li>
-                                <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                                <li class="active"><a th:href="@{/web/services}">Services</a></li>
-                                <li><a th:href="@{/web/blog}">Blog</a></li>
-                                <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
-<!--                                that place is sign up\login-->
-                                <li><a th:href="@{/web/login}">Login</a>
-                                </li>
-<!--                                before that place-->
-                                <li><a th:href="@{/web/contact}">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <div class="header__nav__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__nav__option">
+                    <nav class="header__nav__menu mobile-menu">
+                        <ul>
+                            <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
+                            <li><a th:href="@{/web/blog}">Blog</a></li>
+                            <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
+                            <li><a th:href="@{/web/login}">Login</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__nav__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
                     </div>
                 </div>
             </div>
-            <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
-    <!-- Header End -->
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
 
-    <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-        <div class="container">
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Our Sevices</h2>
+                    <div class="breadcrumb__links">
+                        <a href="#">Home</a>
+                        <span>Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Services Section Begin -->
+<section class="services-page spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-2.png" alt="">
+                    </div>
+                    <h4>Scriptwriting and editing</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-1.png" alt="">
+                    </div>
+                    <h4>Motion graphics</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-2.png" alt="">
+                    </div>
+                    <h4>Scriptwriting and editing</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-3.png" alt="">
+                    </div>
+                    <h4>Video distribution</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-4.png" alt="">
+                    </div>
+                    <h4>Video hosting</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="services__item">
+                    <div class="services__item__icon">
+                        <img src="/img/icons/si-4.png" alt="">
+                    </div>
+                    <h4>Video hosting</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+
+<!-- Call To Action Section Begin -->
+<section class="callto sp__callto">
+    <div class="container">
+        <div class="callto__services spad set-bg" data-setbg="/img/calltos-bg.jpg">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="callto__text">
+                        <h2>CREATE AWESOME VIDEOS WITH WIDEO’S POWERFUL FEATURES</h2>
+                        <p>Wideo combines all the features you need to easily create professional videos and
+                            presentations</p>
+                        <a href="#">Start your stories</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Call To Action Section End -->
+
+<!-- Logo Begin -->
+<div class="logo spad">
+    <div class="container">
+        <div class="logo__carousel owl-carousel">
+            <a href="#" class="logo__item"><img src="/img/logo/logo-1.png" alt=""></a>
+            <a href="#" class="logo__item"><img src="/img/logo/logo-2.png" alt=""></a>
+            <a href="#" class="logo__item"><img src="/img/logo/logo-3.png" alt=""></a>
+            <a href="#" class="logo__item"><img src="/img/logo/logo-4.png" alt=""></a>
+            <a href="#" class="logo__item"><img src="/img/logo/logo-5.png" alt=""></a>
+            <a href="#" class="logo__item"><img src="/img/logo/logo-6.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Logo End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__logo">
+                        <a href="#"><img src="/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__option">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__option__item">
+                        <h5>About us</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been...</p>
+                        <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Who we are</h5>
+                        <ul>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Carrers</a></li>
+                            <li><a th:href="@{/web/contact}">Contact us</a></li>
+                            <li><a href="https://witcher.fandom.com/wiki/World_map"
+                                   target="_blank">Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Our work</h5>
+                        <ul>
+                            <li><a href="#">Feature</a></li>
+                            <li><a href="#">Latest</a></li>
+                            <li><a href="#">Browse Archive</a></li>
+                            <li><a href="#">Video for web</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__option__item">
+                        <h5>Newsletter</h5>
+                        <p>Videoprah is an award-winning, full-service production company specializing.</p>
+                        <form action="#">
+                            <input type="email" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Our Sevices</h2>
-                        <div class="breadcrumb__links">
-                            <a href="#">Home</a>
-                            <span>Services</span>
-                        </div>
-                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p class="footer__copyright__text">Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved | This template is made with <i class="fas fa-biohazard	"
+                                                                            aria-hidden="true"></i> by <a
+                                href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
+                    </p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- Breadcrumb End -->
+</footer>
+<!-- Footer Section End -->
 
-    <!-- Services Section Begin -->
-    <section class="services-page spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-2.png" alt="">
-                        </div>
-                        <h4>Scriptwriting and editing</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-1.png" alt="">
-                        </div>
-                        <h4>Motion graphics</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-2.png" alt="">
-                        </div>
-                        <h4>Scriptwriting and editing</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-3.png" alt="">
-                        </div>
-                        <h4>Video distribution</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-4.png" alt="">
-                        </div>
-                        <h4>Video hosting</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services__item">
-                        <div class="services__item__icon">
-                            <img src="/img/icons/si-4.png" alt="">
-                        </div>
-                        <h4>Video hosting</h4>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, our post
-                            production services can put the finishing touches.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
-
-    <!-- Call To Action Section Begin -->
-    <section class="callto sp__callto">
-        <div class="container">
-            <div class="callto__services spad set-bg" data-setbg="/img/calltos-bg.jpg">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-10 text-center">
-                        <div class="callto__text">
-                            <h2>CREATE AWESOME VIDEOS WITH WIDEO’S POWERFUL FEATURES</h2>
-                            <p>Wideo combines all the features you need to easily create professional videos and
-                                presentations</p>
-                            <a href="#">Start your stories</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Call To Action Section End -->
-
-    <!-- Logo Begin -->
-    <div class="logo spad">
-        <div class="container">
-            <div class="logo__carousel owl-carousel">
-                <a href="#" class="logo__item"><img src="/img/logo/logo-1.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="/img/logo/logo-2.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="/img/logo/logo-3.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="/img/logo/logo-4.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="/img/logo/logo-5.png" alt=""></a>
-                <a href="#" class="logo__item"><img src="/img/logo/logo-6.png" alt=""></a>
-            </div>
-        </div>
-    </div>
-    <!-- Logo End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__top">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__top__logo">
-                            <a href="#"><img src="/img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer__top__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__option">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__option__item">
-                            <h5>About us</h5>
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing.</p>
-                            <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Who we are</h5>
-                            <ul>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Carrers</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">Locations</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-3">
-                        <div class="footer__option__item">
-                            <h5>Our work</h5>
-                            <ul>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Latest</a></li>
-                                <li><a href="#">Browse Archive</a></li>
-                                <li><a href="#">Video for web</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="footer__option__item">
-                            <h5>Newsletter</h5>
-                            <p>Videoprah is an award-winning, full-service production company specializing.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__copyright">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p class="footer__copyright__text">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved | This template is made with <i class="fas fa-biohazard	"
-                                                                                aria-hidden="true"></i> by <a
-                                    href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
-                        </p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <script th:src="@{../js/jquery-3.3.1.min.js}"></script>
-    <script th:src="@{../js/bootstrap.min.js}"></script>
-    <script th:src="@{../js/jquery.magnific-popup.min.js}"></script>
-    <script th:src="@{../js/mixitup.min.js}"></script>
-    <script th:src="@{../js/masonry.pkgd.min.js}"></script>
-    <script th:src="@{../js/jquery.slicknav.js}"></script>
-    <script th:src="@{../js/owl.carousel.min.js}"></script>
-    <script th:src="@{../js/main.js}"></script>
+<!-- Js Plugins -->
+<script th:src="@{../js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{../js/bootstrap.min.js}"></script>
+<script th:src="@{../js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{../js/mixitup.min.js}"></script>
+<script th:src="@{../js/masonry.pkgd.min.js}"></script>
+<script th:src="@{../js/jquery.slicknav.js}"></script>
+<script th:src="@{../js/owl.carousel.min.js}"></script>
+<script th:src="@{../js/main.js}"></script>
 </body>
 
 </html>
