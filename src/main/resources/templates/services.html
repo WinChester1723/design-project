@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <!-- Css Styles -->
     <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
@@ -43,19 +44,17 @@
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li><a href="./about.html">About</a></li>
-                                <li><a href="./portfolio.html">Portfolio</a></li>
-                                <li class="active"><a href="./services.html">Services</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./about.html">About</a></li>
-                                        <li><a href="./portfolio.html">Portfolio</a></li>
-                                        <li><a href="./blog.html">Blog</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                    </ul>
+                                <li><a th:href="@{/web/index}">Home</a></li>
+                                <li><a th:href="@{/web/about}">About</a></li>
+                                <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
+                                <li class="active"><a th:href="@{/web/services}">Services</a></li>
+                                <li><a th:href="@{/web/blog}">Blog</a></li>
+                                <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
+<!--                                that place is sign up\login-->
+                                <li><a th:href="@{/web/login}">Login</a>
                                 </li>
-                                <li><a href="./contact.html">Contact</a></li>
+<!--                                before that place-->
+                                <li><a th:href="@{/web/contact}">Contact</a></li>
                             </ul>
                         </nav>
                         <div class="header__nav__social">
@@ -267,8 +266,9 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            All rights reserved | This template is made with <i class="fas fa-biohazard	"
+                                                                                aria-hidden="true"></i> by <a
+                                    href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
                         </p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
