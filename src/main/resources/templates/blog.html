@@ -7,7 +7,7 @@
     <meta name="keywords" content="Videograph, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Videograph | Template</title>
+    <title>Art Future | Blog</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
@@ -50,6 +50,10 @@
                         <a th:href="@{/web/services}">Services</a></li>
                     <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
                         <a th:href="@{/web/contact}">Contact</a></li>
+                    <li class="nav-item" th:classappend="${module == 'blog' ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/web/blog}">Blog</a>
+                    <li class="nav-item" th:classappend="${module == 'blog-details' ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/web/blog-details}">Blog Details</a>
                     <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
                         <a class="nav-link" th:href="@{/web/index}">Home</a>
                     </li>
@@ -61,16 +65,17 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a th:href="@{/web/index}"><img src="/img/logo.png" alt=""></a>
+                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                        style="height: 30px"></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
+                                <li><a th:href="@{/web/artist}">Artist</a>
                                 <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                                <li><a th:href="@{/web/blog}">Blog</a></li>
-                                <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
+                                <li><a th:href="@{/web/wishlist}">Wishlist</a>
                                 <li><a th:href="@{/web/login}">Login</a>
                                 </li>
                             </ul>
@@ -98,7 +103,7 @@
                     <div class="breadcrumb__text">
                         <h2>Our Blog</h2>
                         <div class="breadcrumb__links">
-                            <a href="#">Home</a>
+                            <a th:href="@{/web/index}">Home</a>
                             <span>Blog</span>
                         </div>
                     </div>
@@ -116,11 +121,12 @@
                     <div class="blog__item">
                         <h4>What Makes Users Want to Share a Video on Social Media?</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book..</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -128,11 +134,12 @@
                     <div class="blog__item">
                         <h4>Bumper Ads: How to Tell a Story in 6 Seconds</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -140,11 +147,12 @@
                     <div class="blog__item">
                         <h4>Recruitment Marketing for the Digital Age: A Definitive Guide</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -152,11 +160,12 @@
                     <div class="blog__item">
                         <h4>Say Bonjour! Ola! & Guten Tag! to Our New Team Members</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -164,11 +173,12 @@
                     <div class="blog__item">
                         <h4>Recruitment Marketing for the Digital Age: A Definitive Guide</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -176,11 +186,12 @@
                     <div class="blog__item">
                         <h4>Pay-Per-Click Marketing: A ‘Nuts & Bolts’ Guide</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -188,11 +199,12 @@
                     <div class="blog__item">
                         <h4>Vital Launches New University Website Design for...</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -200,11 +212,12 @@
                     <div class="blog__item">
                         <h4>How and When to Write a Press Release: Best Practices...</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -212,11 +225,12 @@
                     <div class="blog__item">
                         <h4>What Makes Users Want to Share a Video on Social Media?</h4>
                         <ul>
-                            <li>Jan 03, 2020</li>
+                            <li>Jan 23, 2022</li>
                             <li>05 Comment</li>
                         </ul>
-                        <p>We recently launched a new website for a Vital client and wanted to share some of the cool
-                            features we were able...</p>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.</p>
                         <a href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
@@ -242,7 +256,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__logo">
-                            <a href="#"><img src="/img/logo.png" alt=""></a>
+                            <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                            style="height: 30px"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -261,8 +276,8 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__option__item">
                             <h5>About us</h5>
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been...</p>
                             <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
                         </div>
                     </div>
@@ -272,7 +287,7 @@
                             <ul>
                                 <li><a href="#">Team</a></li>
                                 <li><a href="#">Carrers</a></li>
-                                <li><a href="#">Contact us</a></li>
+                                <li><a th:href="@{/web/contact}">Contact us</a></li>
                                 <li><a href="#">Locations</a></li>
                             </ul>
                         </div>
@@ -293,7 +308,7 @@
                             <h5>Newsletter</h5>
                             <p>Videoprah is an award-winning, full-service production company specializing.</p>
                             <form action="#">
-                                <input type="text" placeholder="Email">
+                                <input type="email" placeholder="Email">
                                 <button type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>

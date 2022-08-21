@@ -49,9 +49,14 @@ public class TestController {
     }
 
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @GetMapping("/artist")
+    public String artist(){
+        return "artist";
+    }
+
+    @GetMapping("/wishlist")
+    public String wishlist(){
+        return "wishlist";
     }
 
 }

@@ -1,10 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="description" content="Videograph Template">
+    <meta name="keywords" content="Videograph, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Art Future | Artist</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/font-awesome.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/elegant-icons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/owl.carousel.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/artist_style.css}" type="text/css">
+
 </head>
 <body>
+<!-- Header Section Begin -->
+<header class="header">
+    <!--burger menu start-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
+                    <a th:href="@{/web/about}">About</a></li>
+                <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
+                    <a th:href="@{/web/services}">Services</a></li>
+                <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
+                    <a th:href="@{/web/contact}">Contact</a></li>
+                <li class="nav-item" th:classappend="${module == 'blog' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/blog}">Blog</a>
+                <li class="nav-item" th:classappend="${module == 'blog-details' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/blog-details}">Blog Details</a>
+                <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/index}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--burger finish-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                    style="height: 30px"></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__nav__option">
+                    <nav class="header__nav__menu mobile-menu">
+                        <ul>
+                            <li><a th:href="@{/web/artist}">Artist</a>
+                            <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
+                            <li><a th:href="@{/web/wishlist}">Wishlist</a>
+                            <li><a th:href="@{/web/login}">Login</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__nav__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
 
+<!--<header>-->
+<!--    <img src="https://www.artstation.com/assets/logo-icon-b77349b8d26255c452019995b3d9749d.svg" alt="">-->
+<!--    <h3><b>ART</b>STATION</h3>-->
+<!--    <div class="header__search">-->
+<!--        <i class="header__search__icon fas fa-search"></i>-->
+<!--        <input class="input&#45;&#45;search" type="search" placeholder='Search'>-->
+<!--    </div>-->
+<!--    <a href="#" class="button&#45;&#45;login">-->
+<!--        <i class="fas fa-sign-in-alt"></i> SIGN IN-->
+<!--    </a>-->
+<!--</header>-->
+<div class="user">
+    <section class="user__cover">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/020/675/913/large/jari-melgen-cyberpunkhanyasmol.jpg?1568734088"
+             alt="cover art">
+        <section class="user__info">
+            <section class="user__info__avatar">
+                <img src="/images/arts/lightbox-220517-she-s-c8-2.jpg" alt="profile">
+<!--                zdes nado napisat follow knopku i kidat infu na db-->
+            </section>
+            <div class="col">
+                <h2 class="user__info__name">Jari Melgén</h2>
+                <h4 class="user__info__title">Digital Artist</h4>
+                <h4 class="user__info__location">Nyköping, Sweden</h4>
+                <a href="https://www.artstation.com/?sort_by=trending" class="user__info__link">jame.artstation.com</a>
+                <div class="user__info__social">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-pinterest-square"></i>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="user__nav">
+        <a class="nav__item--active" href="#">Portfolio</a>
+        <a href="#">Store</a>
+        <a href="#">Prints</a>
+        <a href="#">About</a>
+        <a href="#">Likes</a>
+        <a href="#">Following</a>
+        <a href="#">Followers</a>
+    </section>
+    <section class="user__gallery">
+        <div class="user__gallery__item">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/020/675/913/large/jari-melgen-cyberpunkhanyasmol.jpg?1568734088"
+                 alt="name">
+            <h3 class="user__gallery__item__name">Hayan</h3>
+        </div>
+        <div class="user__gallery__item">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/015/670/609/large/jari-melgen-fantails.jpg?1549198242"
+                 alt="name">
+            <h3 class="user__gallery__item__name">Portrait Study: Ryukin</h3>
+        </div>
+        <div class="user__gallery__item">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/017/677/553/large/jari-melgen-glasses.jpg?1556912507"
+                 alt="name">
+            <h3 class="user__gallery__item__name">Glasses</h3>
+        </div>
+        <div class="user__gallery__item">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/009/286/093/large/jari-melgen-screenshot001.jpg?1518116288"
+                 alt="name">
+            <h3 class="user__gallery__item__name">E-75</h3>
+        </div>
+        <div class="user__gallery__item">
+            <img src="https://cdna.artstation.com/p/assets/images/images/006/664/650/large/jari-melgen-bertie.jpg?1500317455"
+                 alt="name">
+            <h3 class="user__gallery__item__name">Bertie</h3>
+        </div>
+    </section>
+</div>
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__logo">
+                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                        style="height: 30px"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__option">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__option__item">
+                        <h5>About us</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been...</p>
+                        <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Who we are</h5>
+                        <ul>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Carrers</a></li>
+                            <li><a th:href="@{/web/contact}">Contact us</a></li>
+                            <li><a href="https://witcher.fandom.com/wiki/World_map"
+                                   target="_blank">Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Our work</h5>
+                        <ul>
+                            <li><a href="#">Feature</a></li>
+                            <li><a href="#">Latest</a></li>
+                            <li><a href="#">Browse Archive</a></li>
+                            <li><a href="#">Video for web</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__option__item">
+                        <h5>Newsletter</h5>
+                        <p>Videoprah is an award-winning, full-service production company specializing.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <p class="footer__copyright__text">Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved | This template is made with <i class="fas fa-biohazard	"
+                                                                            aria-hidden="true"></i> by <a
+                                href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
+                    </p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script th:src="@{../js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{../js/bootstrap.min.js}"></script>
+<script th:src="@{../js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{../js/mixitup.min.js}"></script>
+<script th:src="@{../js/masonry.pkgd.min.js}"></script>
+<script th:src="@{../js/jquery.slicknav.js}"></script>
+<script th:src="@{../js/owl.carousel.min.js}"></script>
+<script th:src="@{../js/main.js}"></script>
 </body>
 </html>

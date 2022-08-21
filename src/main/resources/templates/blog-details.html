@@ -7,7 +7,7 @@
     <meta name="keywords" content="Videograph, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Videograph | Template</title>
+    <title>Art Future | Blog-Details</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
@@ -50,6 +50,10 @@
                         <a th:href="@{/web/services}">Services</a></li>
                     <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
                         <a th:href="@{/web/contact}">Contact</a></li>
+                    <li class="nav-item" th:classappend="${module == 'blog' ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/web/blog}">Blog</a>
+                    <li class="nav-item" th:classappend="${module == 'blog-details' ? 'active' : ''}">
+                        <a class="nav-link" th:href="@{/web/blog-details}">Blog Details</a>
                     <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
                         <a class="nav-link" th:href="@{/web/index}">Home</a>
                     </li>
@@ -61,16 +65,17 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a th:href="@{/web/index}"><img src="/img/logo.png" alt=""></a>
+                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                        style="height: 30px"></a>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
+                                <li><a th:href="@{/web/artist}">Artist</a>
                                 <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                                <li><a th:href="@{/web/blog}">Blog</a></li>
-                                <li><a th:href="@{/web/blog-details}">Blog Details</a></li>
+                                <li><a th:href="@{/web/wishlist}">Wishlist</a>
                                 <li><a th:href="@{/web/login}">Login</a>
                                 </li>
                             </ul>
@@ -224,7 +229,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__logo">
-                            <a href="#"><img src="/img/logo.png" alt=""></a>
+                            <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                            style="height: 30px"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -254,8 +260,9 @@
                             <ul>
                                 <li><a href="#">Team</a></li>
                                 <li><a href="#">Carrers</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">Locations</a></li>
+                                <li><a th:href="@{/web/contact}">Contact us</a></li>
+                                <li><a href="https://witcher.fandom.com/wiki/World_map"
+                                       target="_blank">Locations</a></li>
                             </ul>
                         </div>
                     </div>
@@ -275,7 +282,7 @@
                             <h5>Newsletter</h5>
                             <p>Videoprah is an award-winning, full-service production company specializing.</p>
                             <form action="#">
-                                <input type="text" placeholder="Email">
+                                <input type="email" placeholder="Email">
                                 <button type="submit"><i class="fa fa-send"></i></button>
                             </form>
                         </div>
