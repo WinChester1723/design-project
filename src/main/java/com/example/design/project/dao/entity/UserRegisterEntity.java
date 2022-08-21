@@ -15,10 +15,10 @@ public class UserRegisterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "username")
-    private String username;
-    @Column(name = "user_surname")
-    private String surname;
+    @Column(name = "first_name")
+    private String first_name;
+    @Column(name = "last_name")
+    private String last_name;
     @Column(name = "user_name")
     private String user_name;
     @Column(name = "user_email")
