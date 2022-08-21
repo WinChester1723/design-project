@@ -121,7 +121,7 @@ body
 #menu
 {
     position: absolute;
-    width: 175px;
+    width: 275px;
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
@@ -139,7 +139,7 @@ body
 
 #menu li
 {
-    padding: 10px 0;
+    padding: 7px 0;
     font-size: 17px;
 }
 
