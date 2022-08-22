@@ -59,4 +59,9 @@ public class TestController {
         return "wishlist";
     }
 
+    @GetMapping("/art-gallery")
+    public String artGallery(){
+        return "art_gallery";
+    }
+
 }
