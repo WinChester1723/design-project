@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class UserRegisterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer user_id;
     @Column(name = "first_name")
     private String first_name;
     @Column(name = "last_name")
