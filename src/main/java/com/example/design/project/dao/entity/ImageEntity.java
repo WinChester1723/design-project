@@ -10,14 +10,15 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user_role", schema = "art_design")
-public class RoleEntity {
+@Table(name = "image_table", schema = "art_design")
+public class ImageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
-    private Integer role_id;
-    @Column(name = "role_name")
-    private String role_name;
-
+    @Column(name = "image_id")
+    private Integer image_id;
+    @Column(name = "image_name")
+    private String image_name;
+    @Column(name = "image_file")
+    private String image_file;
 }
