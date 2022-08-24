@@ -15,6 +15,7 @@ public class AdminEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "admin_id")
     private Integer admin_id;
     @Column(name = "admin_first_name")
     private String admin_first_name;
