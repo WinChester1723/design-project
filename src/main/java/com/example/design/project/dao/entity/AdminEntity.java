@@ -27,4 +27,5 @@ public class AdminEntity {
     private String admin_email;
     @Column(name = "admin_password")
     private String admin_password;
+
 }
