@@ -54,9 +54,9 @@ public class TestController {
         return "artist";
     }
 
-    @GetMapping("/wishlist")
+    @GetMapping("/profile")
     public String wishlist(){
-        return "wishlist";
+        return "profile";
     }
 
     @GetMapping("/art-gallery")
