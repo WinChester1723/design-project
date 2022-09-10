@@ -69,7 +69,7 @@
                         <ul>
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                            <li><a th:href="@{/web/wishlist}">Wishlist</a>
+                            <li><a th:href="@{/web/profile}">Profile</a>
                             <li class="active"><a th:href="@{/web/login}">Login</a>
                             </li>
                         </ul>
@@ -273,7 +273,7 @@
                             <div class="tabs-content">
                                 <!-- TABS CONTENT LOGIN -->
                                 <div id="login-tab-content" class="active">
-                                    <form class="login-form" action="" method="post">
+                                    <form class="login-form" th:action="@{/login}" method="post">
                                         <input type="text" class="input" id="user_login" autocomplete="off"
                                                placeholder="Email or Username">
                                         <input type="password" class="input" id="usser_pass" autocomplete="off"
@@ -291,17 +291,17 @@
                                 <!-- TABS CONTENT SIGNUP -->
                                 <!--                                zdes toje nado svazat s tablitsoy i sozdat dla etovo service-->
                                 <div id="signup-tab-content">
-                                    <form class="signup-form" action="" method="post">
+                                    <form class="signup-form" th:action="@{/register}" method="post">
                                         <input type="text" class="input" id="first_name" autocomplete="off"
-                                               placeholder="Name">
+                                               placeholder="Name" required>
                                         <input type="text" class="input" id="last_name" autocomplete="off"
-                                               placeholder="Surname">
+                                               placeholder="Surname" required>
                                         <input type="email" class="input" id="user_email" autocomplete="off"
-                                               placeholder="Email">
+                                               placeholder="Email" required>
                                         <input type="text" class="input" id="user_name" autocomplete="off"
-                                               placeholder="Username">
+                                               placeholder="Username" required>
                                         <input type="password" class="input" id="user_pass" autocomplete="off"
-                                               placeholder="Password">
+                                               placeholder="Password" required>
                                         <input type="submit" class="button" value="Sign Up">
                                     </form>
                                     <div class="help-action">
