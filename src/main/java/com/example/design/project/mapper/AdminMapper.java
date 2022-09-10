@@ -12,21 +12,21 @@ public interface AdminMapper {
     AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 
     @Mappings({
-            @Mapping(source = "admin_first_name", target = "admin_first_name"),
-            @Mapping(source = "admin_last_name", target = "admin_last_name"),
-            @Mapping(source = "admin_user_name", target = "admin_user_name"),
-            @Mapping(source = "admin_email", target = "admin_email"),
-            @Mapping(source = "admin_password", target = "admin_password")
+            @Mapping(source = "adminFirstName", target = "adminFirstName"),
+            @Mapping(source = "adminLastName", target = "adminLastName"),
+            @Mapping(source = "adminUserName", target = "adminUserName"),
+            @Mapping(source = "adminEmail", target = "adminEmail"),
+            @Mapping(source = "adminPassword", target = "adminPassword")
 
     })
     AdminDto entityToDto(AdminEntity adminEntity);
 
     @Mappings({
-            @Mapping(source = "admin_first_name", target = "admin_first_name"),
-            @Mapping(source = "admin_last_name", target = "admin_last_name"),
-            @Mapping(source = "admin_user_name", target = "admin_user_name"),
-            @Mapping(source = "admin_email", target = "admin_email"),
-            @Mapping(source = "admin_password", target = "admin_password")
+            @Mapping(source = "adminFirstName", target = "adminFirstName"),
+            @Mapping(source = "adminLastName", target = "adminLastName"),
+            @Mapping(source = "adminUserName", target = "adminUserName"),
+            @Mapping(source = "adminEmail", target = "adminEmail"),
+            @Mapping(source = "adminPassword", target = "adminPassword")
 
     })
     AdminEntity dtoToEntity(AdminDto adminDto);

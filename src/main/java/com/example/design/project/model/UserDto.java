@@ -10,26 +10,26 @@ import javax.validation.constraints.NotEmpty;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdminDto {
-
-    private Integer adminId;
+public class UserDto {
+    private Integer userId;
     @NotEmpty(message = "First name can not be empty")
-    private String adminFirstName;
+    private String firstName;
     @NotEmpty(message = "Last name can not be empty")
-    private String adminLastName;
+    private String lastName;
     @NotEmpty(message = "User name can not be empty")
-    private String adminUserName;
+    private String userName;
     @NotEmpty(message = "Email can not be empty")
-    @Email(message = "Please provide a valid email id")
-    private String adminEmail;
-    @NotEmpty(message = "Password can not be empty")
-    private String adminPassword;
 
-    public String getsAdminPassword() {
-        return adminPassword;
+    @Email(message = "Please provide a valid email id")
+    private String userEmail;
+    @NotEmpty(message = "Password can not be empty")
+    private String userPassword;
+
+    public String getsUserPassword() {
+        return userPassword;
     }
 
-    public void setsAdminPassword(String adminPassword) {
-        this.adminPassword = adminPassword;
+    public void setsUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }

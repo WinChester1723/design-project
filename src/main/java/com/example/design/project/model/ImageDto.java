@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ImageDto {
-    private Integer image_id;
-    private String image_name;
-    private String image_file;
+    private Integer imageId;
+    private String imageName;
+    private String imageFile;
+
+
 }

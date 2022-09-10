@@ -13,14 +13,14 @@ public interface ImageMapper {
     ImageMapper INSTANCE = Mappers.getMapper(ImageMapper.class);
 
     @Mappings({
-            @Mapping(source = "image_name", target = "image_name"),
-            @Mapping(source = "image_file", target = "image_file")
+            @Mapping(source = "imageName", target = "imageName"),
+            @Mapping(source = "imageFile", target = "imageFile")
     })
     ImageDto entityToDto(ImageEntity imageEntity);
 
     @Mappings({
-            @Mapping(source = "image_name", target = "image_name"),
-            @Mapping(source = "image_file", target = "image_file")
+            @Mapping(source = "imageName", target = "imageName"),
+            @Mapping(source = "imageFile", target = "imageFile")
     })
     ImageEntity dtoToEntity(ImageDto imageDto);
 }
