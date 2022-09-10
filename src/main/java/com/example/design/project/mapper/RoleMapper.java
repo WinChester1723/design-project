@@ -12,12 +12,12 @@ public interface RoleMapper {
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
     @Mappings({
-            @Mapping(source = "role_name", target = "role_name")
+            @Mapping(source = "roleName", target = "roleName")
     })
     RoleDto entityToDto(RoleEntity roleEntity);
 
     @Mappings({
-            @Mapping(source = "role_name", target = "role_name")
+            @Mapping(source = "roleName", target = "roleName")
     })
     RoleEntity dtoToEntity(RoleDto roleDto);
 }
