@@ -16,9 +16,9 @@ public class ImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_id")
-    private Integer image_id;
+    private Integer imageId;
     @Column(name = "image_name")
-    private String image_name;
+    private String imageName;
     @Column(name = "image_file")
-    private String image_file;
+    private String imageFile;
 }

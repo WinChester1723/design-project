@@ -1,17 +1,18 @@
 package com.example.design.project.dao.repository;
 
-import com.example.design.project.dao.entity.UserRegisterEntity;
+import com.example.design.project.dao.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface UserRegisterRepo extends JpaRepository<UserRegisterEntity, Integer> {
-//    UserRegisterEntity findByUser_name(String name);
+public interface UserRepo extends JpaRepository<UserEntity, Integer> {
 
+    Optional<UserEntity> findUserEntityByUserEmail(String email);
     @Query(value = "SELECT user_name FROM art_design.user_register",
     nativeQuery = true)
-    List<UserRegisterEntity> showUserName();
+    List<UserEntity> showUserName();
 }
