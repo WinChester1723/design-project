@@ -19,7 +19,6 @@ public class UserDto {
     @NotEmpty(message = "User name can not be empty")
     private String userName;
     @NotEmpty(message = "Email can not be empty")
-
     @Email(message = "Please provide a valid email id")
     private String userEmail;
     @NotEmpty(message = "Password can not be empty")
