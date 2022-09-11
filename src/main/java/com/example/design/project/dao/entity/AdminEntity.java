@@ -11,7 +11,7 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "admin_db", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "admin_db", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "admin_email"))
 public class AdminEntity {
 
     @Id
@@ -33,4 +33,13 @@ public class AdminEntity {
             inverseJoinColumns = @JoinColumn(name="role_id",referencedColumnName = "role_id"))
     private Collection<RoleEntity> roles;
 
+    public AdminEntity(String adminFirstName, String adminLastName, String adminUserName, String adminEmail,
+                       String adminPassword, Collection<RoleEntity> roles) {
+        this.adminFirstName = adminFirstName;
+        this.adminLastName = adminLastName;
+        this.adminUserName = adminUserName;
+        this.adminEmail = adminEmail;
+        this.adminPassword = adminPassword;
+        this.roles = roles;
+    }
 }

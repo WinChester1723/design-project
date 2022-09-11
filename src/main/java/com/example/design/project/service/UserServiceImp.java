@@ -41,7 +41,12 @@ public class UserServiceImp implements UserService,UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepo.findByUserEmail(email);
+
+        if (userEntity == null){
+            throw new UsernameNotFoundException("User name and password is not correct");
+        }
+        return new UserDetailService(userEntity);
     }
 }
