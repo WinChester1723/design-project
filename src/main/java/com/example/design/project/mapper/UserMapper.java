@@ -8,8 +8,8 @@ import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface UserRegisterMapper {
-    UserRegisterMapper INSTANCE = Mappers.getMapper(UserRegisterMapper.class);
+public interface UserMapper {
+    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     @Mappings({
             @Mapping(source = "firstName", target = "firstName"),

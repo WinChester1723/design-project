@@ -11,7 +11,7 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_register", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "user_register", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "user_email"))
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
