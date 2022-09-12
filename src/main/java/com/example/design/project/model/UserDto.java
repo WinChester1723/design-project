@@ -31,4 +31,10 @@ public class UserDto {
     public void setsUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
+
+    public UserDto(String firstName, String lastName, String userEmail) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userEmail = userEmail;
+    }
 }
