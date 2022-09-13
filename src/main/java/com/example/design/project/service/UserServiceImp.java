@@ -58,7 +58,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserDto findByEmail(String email) {
+    public UserDto findByEmail() {
         Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userEmail;
         if (obj instanceof UserDetails) {

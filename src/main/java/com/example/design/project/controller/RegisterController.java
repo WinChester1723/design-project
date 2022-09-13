@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/register")
 public class RegisterController {
     private UserServiceImp userServiceImp;
 
@@ -26,34 +26,44 @@ public class RegisterController {
         this.userServiceImp = userServiceImp;
     }
 
-    @GetMapping("/")
+    @GetMapping("/show")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new UserDto());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "/web/login";
+            return "login";
         }
-        return "redirect:/";
+        return "redirect:/show";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/login")
     public String registerUserAccount(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult,
                                       RedirectAttributes redirectAttributes) {
         if (userServiceImp.userExists(userDto.getUserEmail())) {
-            bindingResult.addError(new FieldError("customer", "email", "Email was used"));
+            bindingResult.addError(new FieldError("user", "email", "Email was used"));
         }
         if (userDto.getUserPassword() != null && userDto.getsUserPassword() != null) {
             if (!userDto.getsUserPassword().equals(userDto.getsUserPassword())) {
-                bindingResult.addError(new FieldError("customer", "rPassword", "Password is not same"));
+                bindingResult.addError(new FieldError("user", "rPassword", "Password is not same"));
             }
         }
         if (bindingResult.hasErrors()) {
-            return "/web/login";
+            return "login";
         } else
             userServiceImp.save(userDto);
         return "redirect:/login/?success";
     }
 
+//    @PostMapping("/registration")
+//    public String registration(@ModelAttribute("userForm") UserDto userDto, BindingResult bindingResult) {
+//        userValidator.validate(userDto, bindingResult);
+//        if (bindingResult.hasErrors()) {
+//            return "registration";
+//        }
+//        userServiceImp.save(userForm);
+//        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
+//        return "redirect:/";
+//    }
 
 }
