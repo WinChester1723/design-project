@@ -64,4 +64,16 @@ public class AdminServiceImp implements AdminService {
         }
         return roles;
     }
+
+    @Override
+    public AdminDto findByEmail(String email) {
+        var adminEntity = adminRepository.findByAdminEmail(email);
+        return AdminMapper.INSTANCE.entityToDto(adminEntity);
+    }
+
+    @Override
+    public AdminDto findByUsername(String name) {
+        var adminEntity = adminRepository.findByAdminUserName(name);
+        return AdminMapper.INSTANCE.entityToDto(adminEntity);
+    }
 }

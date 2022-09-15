@@ -37,7 +37,7 @@ public class RegisterController {
         return "redirect:/show";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/add")
     public String registerUserAccount(@Valid @ModelAttribute("user") UserDto userDto, BindingResult bindingResult,
                                       RedirectAttributes redirectAttributes) {
         if (userServiceImp.userExists(userDto.getUserEmail())) {
@@ -55,15 +55,5 @@ public class RegisterController {
         return "redirect:/login/?success";
     }
 
-//    @PostMapping("/registration")
-//    public String registration(@ModelAttribute("userForm") UserDto userDto, BindingResult bindingResult) {
-//        userValidator.validate(userDto, bindingResult);
-//        if (bindingResult.hasErrors()) {
-//            return "registration";
-//        }
-//        userServiceImp.save(userForm);
-//        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
-//        return "redirect:/";
-//    }
 
 }

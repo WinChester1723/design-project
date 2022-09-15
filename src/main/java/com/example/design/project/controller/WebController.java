@@ -22,22 +22,22 @@ public class WebController {
         this.adminServiceImp = adminServiceImp;
     }
 
-    @GetMapping(path = {"/home","/","/index"})
-    public String index(Model model){
-        model.addAttribute("authoritiesUser",userServiceImp.getAllRole());
-        model.addAttribute("authoritiesAdmin",adminServiceImp.getAllRole());
-        model.addAttribute("user",userServiceImp.findByEmail());
+    @GetMapping(path = {"/home", "/", "/index"})
+    public String index(Model model) {
+        model.addAttribute("authoritiesUser", userServiceImp.getAllRole());
+        model.addAttribute("authoritiesAdmin", adminServiceImp.getAllRole());
+        model.addAttribute("user", userServiceImp.findByEmail());
         return "index";
     }
 
     @GetMapping("/login")
-    public String login(Model model){
+    public String login(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "login";
         }
-        model.addAttribute("user",userServiceImp.findByEmail());
+        model.addAttribute("user", userServiceImp.findByEmail());
         model.addAttribute("authorities", userServiceImp.getAllRole());
         model.addAttribute("authorities", adminServiceImp.getAllRole());
 
@@ -45,14 +45,14 @@ public class WebController {
     }
 
     @GetMapping("/logout")
-    public String logout(Model model){
+    public String logout(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "redirect:/";
         }
-        model.addAttribute("user",userServiceImp.findByEmail());
-        model.addAttribute("authorities",userServiceImp.getAllRole());
+        model.addAttribute("user", userServiceImp.findByEmail());
+        model.addAttribute("authorities", userServiceImp.getAllRole());
         model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "redirect:login?logout";
@@ -60,94 +60,54 @@ public class WebController {
 
     @GetMapping("/about")
     public String about(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "about";
     }
 
     @GetMapping("/art-gallery")
     public String artGallery(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "art_gallery";
     }
 
     @GetMapping("/artist")
     public String artist(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "artist";
     }
 
     @GetMapping("/blog")
     public String blog(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "blog";
     }
 
-    @GetMapping("/blog-datails")
+    @GetMapping("/blog-details")
     public String blogDetails(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "blog-details";
     }
 
     @GetMapping("/contact")
     public String contact(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "contact";
     }
 
     @GetMapping("/portfolio")
     public String portfolio(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "portfolio";
     }
 
     @GetMapping("/services")
     public String services(Model model) {
-//        model.addAttribute("authorities", userServiceImp.allUsers());
-//        model.addAttribute("user", userServiceImp.findByEmail());
-//        model.addAttribute("authorities", userServiceImp.getAllRole());
-//        model.addAttribute("authorities", adminServiceImp.allAdmins());
-//        model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "services";
     }
 
     @GetMapping("/profile")
-    public String wishlist(){
+    public String wishlist() {
         return "profile";
     }
 }

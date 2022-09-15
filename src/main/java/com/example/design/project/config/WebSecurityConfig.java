@@ -42,6 +42,11 @@ public class WebSecurityConfig implements WebMvcConfigurer {
         return auth;
     }
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     public void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
@@ -110,11 +115,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 //    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.userDetailsService(userServiceImp).passwordEncoder(bCryptPasswordEncoder());
 //    }
-//
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+
 
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor(){

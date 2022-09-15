@@ -10,7 +10,9 @@ public interface AdminService {
 
     Boolean adminExists(String email);
 
-//    AdminDto findByEmail(String email);
+    AdminDto findByEmail(String email);
+
+    AdminDto findByUsername(String name);
 
     List<AdminDto> allAdmins();
 
