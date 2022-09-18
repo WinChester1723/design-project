@@ -1,13 +1,11 @@
 package com.example.design.project.config;
 
+import com.example.design.project.service.AdminServiceImp;
 import com.example.design.project.service.UserServiceImp;
-import org.apache.tomcat.util.descriptor.LocalResolver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,27 +16,34 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig implements WebMvcConfigurer {
 
     private UserServiceImp userServiceImp;
+    private AdminServiceImp adminServiceImp;
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
-    public WebSecurityConfig(UserServiceImp userServiceImp, CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler) {
+    public WebSecurityConfig(UserServiceImp userServiceImp, AdminServiceImp adminServiceImp,
+                             CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler) {
         this.userServiceImp = userServiceImp;
+        this.adminServiceImp = adminServiceImp;
         this.customAuthenticationSuccessHandler = customAuthenticationSuccessHandler;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setPasswordEncoder(new BCryptPasswordEncoder());
         auth.setUserDetailsService(userServiceImp);
+        auth.setPasswordEncoder(bCryptPasswordEncoder());
+
         return auth;
     }
 
@@ -99,21 +104,6 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 //    @Bean
 //    public LocalResolver localResolver(){
 //        return new SessionLocaleResolver();//new CookieLocaleResolver();
-//    }
-//
-//    @Bean
-//    public AuthenticationManager customAuthenticationManager() throws Exception {
-//        return authenticationManager();
-//    }
-//
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userServiceImp).passwordEncoder(bCryptPasswordEncoder());
-//    }
-//
-//    @Bean
-//    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
 //    }
 
     @Bean
