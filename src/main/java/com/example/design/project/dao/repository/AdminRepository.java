@@ -17,4 +17,8 @@ public interface AdminRepository extends JpaRepository<AdminEntity, Integer> {
     @Query(value = "select * from admins_roles ar  join admin_db a on ar.admin_id=a.admin_id " +
             "join role r on ar.role_id = r.role_id and r.role_name=?1 ", nativeQuery = true)
     List<AdminEntity> findByRoles(String role);
+
+    Boolean existsByAdminUserName(String name);
+
+    Boolean existsByAdminEmail(String email);
 }

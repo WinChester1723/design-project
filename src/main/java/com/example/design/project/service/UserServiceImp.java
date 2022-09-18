@@ -2,6 +2,7 @@ package com.example.design.project.service;
 
 import com.example.design.project.dao.entity.RoleEntity;
 import com.example.design.project.dao.entity.UserEntity;
+import com.example.design.project.dao.repository.RoleRepository;
 import com.example.design.project.dao.repository.UserRepository;
 import com.example.design.project.mapper.UserMapper;
 import com.example.design.project.model.UserDto;
@@ -24,22 +25,36 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImp implements UserService, UserDetailsService {
     private UserRepository userRepository;
+    private RoleRepository roleRepository;
 
-    public UserServiceImp(UserRepository userRepository) {
+    public UserServiceImp(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+    }
+
+    @Override
+    @Transactional
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        var userEntity = userRepository.findByUserEmail(email);
+        if (userEntity == null) {
+            throw new UsernameNotFoundException("No user found with the given email.");
+        }
+        return new CustomUserDetails(userEntity);
     }
 
     @Override
     @Transactional
     public void save(UserDto userDto) {
-        UserEntity userEntity = new UserEntity(userDto.getFirstName(),
-                userDto.getLastName(),
-                userDto.getUserName(),
-                userDto.getUserEmail(),
-                new BCryptPasswordEncoder().encode(userDto.getUserPassword()),
-                Arrays.asList(new RoleEntity("ROLE_USER")));
-        userRepository.save(userEntity);
+        var userEntity = new UserEntity();
 
+        userEntity.setFirstName(userDto.getFirstName());
+        userEntity.setLastName(userDto.getLastName());
+        userEntity.setUserName(userDto.getUserName());
+        userEntity.setUserEmail(userDto.getUserEmail());
+        userEntity.setUserPassword(new BCryptPasswordEncoder().encode(userDto.getUserPassword()));
+        userEntity.setRoles(Arrays.asList(roleRepository.findByRoleName("ROLE_USER")));
+
+        userRepository.save(userEntity);
     }
 
     @Override
@@ -47,15 +62,6 @@ public class UserServiceImp implements UserService, UserDetailsService {
         return userRepository.findUserEntityByUserEmail(email).isPresent();
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findByUserEmail(email);
-
-        if (userEntity == null) {
-            throw new UsernameNotFoundException("User name and password is not correct");
-        }
-        return new UserDetailService(userEntity);
-    }
 
     @Override
     public UserDto findByEmail() {
@@ -90,5 +96,11 @@ public class UserServiceImp implements UserService, UserDetailsService {
             roles.add(g.getAuthority());
         }
         return roles;
+    }
+
+    @Override
+    public UserDto findByUserEmail(String email) {
+        var userEntity = userRepository.findByUserEmail(email);
+        return UserMapper.INSTANCE.entityToDto(userEntity);
     }
 }

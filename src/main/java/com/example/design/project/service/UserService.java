@@ -13,4 +13,6 @@ public interface UserService {
     List<UserDto> allUsers();
 
     List<String> getAllRole();
+
+    UserDto findByUserEmail(String email);
 }

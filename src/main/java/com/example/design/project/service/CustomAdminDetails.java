@@ -1,6 +1,6 @@
 package com.example.design.project.service;
 
-import com.example.design.project.dao.entity.UserEntity;
+import com.example.design.project.dao.entity.AdminEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,18 +8,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class UserDetailService implements UserDetails {
+public class CustomAdminDetails implements UserDetails {
     private String email;
     private String password;
     private Collection<GrantedAuthority> roles;
 
-    public UserDetailService(UserEntity userEntity) {
-        this.email = userEntity.getUserEmail();
-        this.password = userEntity.getUserPassword();
-        this.roles = userEntity.getRoles()
-                .stream()
-                .map(role -> new SimpleGrantedAuthority(role.getRoleName()))
-                .collect(Collectors.toList());
+    private AdminEntity adminEntity;
+
+    public CustomAdminDetails(AdminEntity adminEntity) {
+        this.adminEntity = adminEntity;
+        this.email = adminEntity.getAdminEmail();
+        this.password = adminEntity.getAdminPassword();
+        this.roles = adminEntity.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRoleName())).collect(Collectors.toList());
     }
 
     @Override
