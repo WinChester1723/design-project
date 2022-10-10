@@ -22,37 +22,38 @@ public class WebController {
         this.adminServiceImp = adminServiceImp;
     }
 
-    @GetMapping(path = {"/home","/","/index"})
-    public String index(Model model){
-        model.addAttribute("authoritiesUser",userServiceImp.getAllRole());
-        model.addAttribute("authoritiesAdmin",adminServiceImp.getAllRole());
-        model.addAttribute("user",userServiceImp.findByEmail());
+    @GetMapping(path = {"/home", "/", "/index"})
+    public String index(Model model) {
+        model.addAttribute("authoritiesUser", userServiceImp.getAllRole());
+        model.addAttribute("authoritiesAdmin", adminServiceImp.getAllRole());
+        model.addAttribute("user", userServiceImp.findByEmail());
         return "index";
     }
 
     @GetMapping("/login")
-    public String login(Model model){
+    public String login(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "login";
         }
-        model.addAttribute("user",userServiceImp.findByEmail());
+        model.addAttribute("user", userServiceImp.findByEmail());
         model.addAttribute("authorities", userServiceImp.getAllRole());
         model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "redirect:/";
     }
 
+
     @GetMapping("/logout")
-    public String logout(Model model){
+    public String logout(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "redirect:/";
         }
-        model.addAttribute("user",userServiceImp.findByEmail());
-        model.addAttribute("authorities",userServiceImp.getAllRole());
+        model.addAttribute("user", userServiceImp.findByEmail());
+        model.addAttribute("authorities", userServiceImp.getAllRole());
         model.addAttribute("authorities", adminServiceImp.getAllRole());
 
         return "redirect:login?logout";
@@ -147,7 +148,7 @@ public class WebController {
     }
 
     @GetMapping("/profile")
-    public String wishlist(){
+    public String wishlist() {
         return "profile";
     }
 }

@@ -3,8 +3,10 @@ package com.example.design.project.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Data
@@ -23,6 +25,9 @@ public class UserDto {
     private String userEmail;
     @NotEmpty(message = "Password can not be empty")
     private String userPassword;
+    @NotBlank(message = "Please return password")
+    @Length(min = 8, message = "")
+    private String rPassword;
 
     public String getsUserPassword() {
         return userPassword;
@@ -36,5 +41,13 @@ public class UserDto {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userEmail = userEmail;
+    }
+
+    public String getrPassword() {
+        return rPassword;
+    }
+
+    public void setrPassword(String rPassword) {
+        this.rPassword = rPassword;
     }
 }
