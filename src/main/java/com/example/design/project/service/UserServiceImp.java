@@ -103,4 +103,6 @@ public class UserServiceImp implements UserService, UserDetailsService {
         var userEntity = userRepository.findByUserEmail(email);
         return UserMapper.INSTANCE.entityToDto(userEntity);
     }
+
+
 }
