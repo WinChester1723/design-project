@@ -1,6 +1,7 @@
 package com.example.design.project.service;
 
 import com.example.design.project.dao.entity.UserEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class CustomUserDetails implements UserDetails {
     private String email;
+    @JsonIgnore
     private String password;
     private Collection<GrantedAuthority> roles;
 
