@@ -1,278 +1,232 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Videograph Template">
-  <meta name="keywords" content="Videograph, unica, creative, html">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Art Future | Register</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Videograph Template">
+    <meta name="keywords" content="Videograph, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Art Future | Register</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-  <!-- Css Styles -->
-  <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/font-awesome.min.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/elegant-icons.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/owl.carousel.min.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">
-  <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/font-awesome.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/elegant-icons.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/owl.carousel.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+<!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
+    <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
 
 </head>
 <body>
 <!-- Header Section Begin -->
 <header class="header">
-  <!--burger menu start-->
-  <nav role="navigation">
-    <div id="menuToggle">
-      <input type="checkbox"/>
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
-          <a th:href="@{/web/about}">About</a></li>
-        <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
-          <a th:href="@{/web/services}">Services</a></li>
-        <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
-          <a th:href="@{/web/contact}">Contact</a></li>
-        <li class="nav-item" th:classappend="${module == 'blog' ? 'active' : ''}">
-          <a class="nav-link" th:href="@{/web/blog}">Blog</a>
-        <li class="nav-item" th:classappend="${module == 'blog-details' ? 'active' : ''}">
-          <a class="nav-link" th:href="@{/web/blog-details}">Blog Details</a>
-        <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
-          <a class="nav-link" th:href="@{/web/index}">Home</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!--burger finish-->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-2">
-        <div class="header__logo">
-          <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
-                                          style="height: 30px"></a>
-        </div>
-      </div>
-      <div class="col-lg-10">
-        <div class="header__nav__option">
-          <nav class="header__nav__menu mobile-menu">
-            <ul>
-              <li><a th:href="@{/web/artist}">Artist</a>
-              <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-              <li><a th:href="@{/web/profile}">Profile</a>
-              <li><a th:href="@{/web/login}">Login</a>
-              <li class="active"><a th:href="@{/registration/}">Registration</a>
-              </li>
+    <!--burger menu start-->
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <li class="nav-item" th:classappend="${module == 'about' ? 'active' : ''}">
+                    <a th:href="@{/web/about}">About</a></li>
+                <li class="nav-item" th:classappend="${module == 'services' ? 'active' : ''}">
+                    <a th:href="@{/web/services}">Services</a></li>
+                <li class="nav-item" th:classappend="${module == 'contact' ? 'active' : ''}">
+                    <a th:href="@{/web/contact}">Contact</a></li>
+                <li class="nav-item" th:classappend="${module == 'blog' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/blog}">Blog</a>
+                <li class="nav-item" th:classappend="${module == 'blog-details' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/blog-details}">Blog Details</a>
+                <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/web/index}">Home</a>
+                </li>
             </ul>
-          </nav>
-          <div class="header__nav__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-          </div>
         </div>
-      </div>
+    </nav>
+    <!--burger finish-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                    style="height: 30px"></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__nav__option">
+                    <nav class="header__nav__menu mobile-menu">
+                        <ul>
+                            <li><a th:href="@{/web/artist}">Artist</a>
+                            <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
+                            <li><a th:href="@{/web/profile}">Profile</a>
+                            <li><a th:href="@{/web/login}">Login</a>
+                            <li class="active"><a th:href="@{/registration/}">Registration</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__nav__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
     </div>
-    <div id="mobile-menu-wrap"></div>
-  </div>
 </header>
 <!-- Header End -->
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="breadcrumb__text">
-          <h2>Sing up | Register</h2>
-          <div class="breadcrumb__links">
-            <a th:href="@{/web/index}">Home</a>
-            <span>Register</span>
-          </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Sing up | Register</h2>
+                    <div class="breadcrumb__links">
+                        <a th:href="@{/web/index}">Home</a>
+                        <span>Register</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <!-- Breadcrumb End -->
 <!--zdes ojidaetsa telo-->
-<div class="container">
-  <div class="row col-md-8 offset-md-2">
-    <div class="card">
-      <div class="card-header">
-        <h2 class="text-center">Registration</h2>
-      </div>
-      <div th:if="${param.success}">
-        <div class="alert alert-info">
-          You have successfully registered our app!
+<section class="contact-widget spad">
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form method="POST" th:object="${userForm}" th:action="@{/registration/add}" autocomplete="off">
+                <label for="chk" aria-hidden="true">Sign up</label>
+
+                <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="First Name">
+
+                <input id="lastName" name="lastName" type="text" th:field="*{lastName}" placeholder="Last Name">
+
+                <div>
+                    <input id="username" type="text" th:field="*{userName}" placeholder="Username" autofocus="true">
+
+                    <!--                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
+                    <span class="has-error" th:if="${#fields.hasErrors('userName')}">
+                    Sorry... username already taken</span>
+                </div>
+
+                <input id="email" name="email" type="email" th:field="*{userEmail}" placeholder="Email">
+
+                <div>
+                    <input id="password" type="password" th:field="*{userPassword}" placeholder="Password">
+                    <!--                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
+                    <span class="has-error" th:if="${#fields.hasErrors('userPassword')}">
+                    Try one with at least 6 characters.
+                </span>
+                </div>
+
+                <button>Sign up</button>
+
+            </form>
         </div>
-      </div>
-      <div class="card-body">
-        <form
-                method="post"
-                role="form"
-                th:action="@{/add}"
-                th:object="${user}"
-        >
-          <div class="form-group mb-3">
-            <label class="form-label">First Name</label>
-            <input
-                    class="form-control"
-                    id="firstName"
-                    name="firstName"
-                    placeholder="Enter first name"
-                    th:field="*{firstName}"
-                    type="text"
-            />
-            <p th:errors = "*{firstName}" class="text-danger"
-               th:if="${#fields.hasErrors('userName')}"></p>
-          </div>
-
-          <div class="form-group mb-3">
-            <label class="form-label">Last Name</label>
-            <input
-                    class="form-control"
-                    id="lastName"
-                    name="lastName"
-                    placeholder="Enter last name"
-                    th:field="*{lastName}"
-                    type="text"
-            />
-            <p th:errors = "*{lastName}" class="text-danger"
-               th:if="${#fields.hasErrors('lastName')}"></p>
-          </div>
-
-          <div class="form-group mb-3">
-            <label class="form-label">Email</label>
-            <input
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter email address"
-                    th:field="*{userEmail}"
-                    type="email"
-            />
-            <p th:errors = "*{userEmail}" class="text-danger"
-               th:if="${#fields.hasErrors('userEmail')}"></p>
-          </div>
-
-          <div class="form-group mb-3">
-            <label class="form-label">Password</label>
-            <input
-                    class="form-control"
-                    id="password"
-                    name="password"
-                    placeholder="Enter password"
-                    th:field="*{userPassword}"
-                    type="password"
-            />
-            <p th:errors = "*{userPassword}" class="text-danger"
-               th:if="${#fields.hasErrors('userPassword')}"></p>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Register</button>
-            <span>Already registered? <a th:href="@{/web/login}">Login here</a></span>
-          </div>
-        </form>
-      </div>
     </div>
-  </div>
-</div>
+</section>
+<!--register END-->
 <!-- Footer Section Begin -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="footer__top__logo">
-            <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
-                                            style="height: 30px"></a>
-          </div>
+    <div class="container">
+        <div class="footer__top">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__logo">
+                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                                                        style="height: 30px"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="footer__top__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="footer__top__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-          </div>
+        <div class="footer__option">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__option__item">
+                        <h5>About us</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been...</p>
+                        <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Who we are</h5>
+                        <ul>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Carrers</a></li>
+                            <li><a th:href="@{/web/contact}">Contact us</a></li>
+                            <li><a href="https://witcher.fandom.com/wiki/World_map"
+                                   target="_blank">Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer__option__item">
+                        <h5>Our work</h5>
+                        <ul>
+                            <li><a href="#">Feature</a></li>
+                            <li><a href="#">Latest</a></li>
+                            <li><a href="#">Browse Archive</a></li>
+                            <li><a href="#">Video for web</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__option__item">
+                        <h5>Newsletter</h5>
+                        <p>Videoprah is an award-winning, full-service production company specializing.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit"><i class="fa fa-send"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="footer__copyright">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="footer__copyright__text">Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        All rights reserved | This template is made with <i class="fas fa-biohazard	"
+                                                                            aria-hidden="true"></i> by <a
+                                href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="footer__option">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="footer__option__item">
-            <h5>About us</h5>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-              been...</p>
-            <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-3">
-          <div class="footer__option__item">
-            <h5>Who we are</h5>
-            <ul>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Carrers</a></li>
-              <li><a th:href="@{/web/contact}">Contact us</a></li>
-              <li><a href="https://witcher.fandom.com/wiki/World_map"
-                     target="_blank">Locations</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-3">
-          <div class="footer__option__item">
-            <h5>Our work</h5>
-            <ul>
-              <li><a href="#">Feature</a></li>
-              <li><a href="#">Latest</a></li>
-              <li><a href="#">Browse Archive</a></li>
-              <li><a href="#">Video for web</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="footer__option__item">
-            <h5>Newsletter</h5>
-            <p>Videoprah is an award-winning, full-service production company specializing.</p>
-            <form action="#">
-              <input type="text" placeholder="Email">
-              <button type="submit"><i class="fa fa-send"></i></button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer__copyright">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <p class="footer__copyright__text">Copyright &copy;
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            All rights reserved | This template is made with <i class="fas fa-biohazard	"
-                                                                aria-hidden="true"></i> by <a
-                    href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
 <!-- Footer Section End -->
 
@@ -286,5 +240,6 @@
 <script th:src="@{../js/owl.carousel.min.js}"></script>
 <script th:src="@{../js/main.js}"></script>
 <script th:src="@{../js/login.js}"></script>
+<script th:src="@{../js/register.js}"></script>
 </body>
 </html>
