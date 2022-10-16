@@ -1,4 +1,4 @@
-package com.example.design.project.service;
+package com.example.design.project.service.serviceInterface;
 
 import com.example.design.project.model.AdminDto;
 

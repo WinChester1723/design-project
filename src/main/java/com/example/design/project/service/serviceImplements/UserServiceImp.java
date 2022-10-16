@@ -1,11 +1,12 @@
-package com.example.design.project.service;
+package com.example.design.project.service.serviceImplements;
 
-import com.example.design.project.dao.entity.RoleEntity;
 import com.example.design.project.dao.entity.UserEntity;
 import com.example.design.project.dao.repository.RoleRepository;
 import com.example.design.project.dao.repository.UserRepository;
 import com.example.design.project.mapper.UserMapper;
 import com.example.design.project.model.UserDto;
+import com.example.design.project.service.CustomUserDetails;
+import com.example.design.project.service.serviceInterface.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -104,5 +105,14 @@ public class UserServiceImp implements UserService, UserDetailsService {
         return UserMapper.INSTANCE.entityToDto(userEntity);
     }
 
+    @Override
+    public UserEntity findUserByEmail(String userEmail) {
+        return userRepository.findByUserEmail(userEmail);
+    }
 
+    @Override
+    public UserDto findByUserName(String userName) {
+        var userEntity = userRepository.findByUserName(userName);
+        return UserMapper.INSTANCE.entityToDto(userEntity);
+    }
 }

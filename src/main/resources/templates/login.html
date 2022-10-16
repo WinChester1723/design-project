@@ -294,11 +294,9 @@
                                 <div id="signup-tab-content">
                                     <form class="signup-form" th:action="@{/register/add}" method="post"
                                           th:object="${user}">
-                                        <div>
-                                            <input type="text" class="input" id="first_name"
-                                                   autocomplete="off"
-                                                   placeholder="Name" required>
-                                        </div>
+                                            <input th:field="*{firstName}" type="text" class="input" id="first_name"
+                                                   autocomplete="off" name="firstName"
+                                                   placeholder="Enter first name" required/>
                                         <input type="text" class="input" id="last_name" autocomplete="off"
                                                placeholder="Surname" required>
                                         <input type="email" class="input" id="user_email" autocomplete="off"

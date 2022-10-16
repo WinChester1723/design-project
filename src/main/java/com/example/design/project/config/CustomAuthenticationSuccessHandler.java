@@ -1,5 +1,6 @@
 package com.example.design.project.config;
 
+import com.example.design.project.service.serviceImplements.UserServiceImp;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,9 +16,29 @@ import java.util.List;
 
 @Configuration
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+
+    private UserServiceImp userServiceImp;
+
+    public CustomAuthenticationSuccessHandler(UserServiceImp userServiceImp) {
+        this.userServiceImp = userServiceImp;
+    }
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
+
+//        System.out.println("\n\nIn customAuthenticationSuccessHandler\n\n");
+//
+//        String userName = authentication.getName();
+//
+//        UserDto userDto = userServiceImp.findByUserName(userName);
+//
+//        HttpSession session = request.getSession();
+//        session.setAttribute("user", userDto);
+//
+//        response.sendRedirect(request.getContextPath() + "/");
+
+
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<>();
 
