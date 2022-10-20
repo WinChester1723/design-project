@@ -53,7 +53,7 @@ public class WebController {
         return "blog";
     }
 
-    @GetMapping("/blog-datails")
+    @GetMapping("/blog-details")
     public String blogDetails(Model model) {
 
         return "blog-details";

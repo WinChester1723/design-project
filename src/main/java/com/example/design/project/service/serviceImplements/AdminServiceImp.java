@@ -24,9 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class AdminServiceImp implements AdminService
-        , UserDetailsService
-{
+public class AdminServiceImp implements AdminService, UserDetailsService {
 
     private AdminRepository adminRepository;
     private RoleRepository roleRepository;
