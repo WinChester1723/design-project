@@ -1,10 +1,8 @@
 package com.example.design.project.controller;
 
-import com.example.design.project.service.serviceImplements.AdminServiceImp;
 import com.example.design.project.service.serviceImplements.UserServiceImp;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.example.design.project.service.serviceInterface.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/web")
+@RequiredArgsConstructor
 public class WebController {
-    private UserServiceImp userServiceImp;
-    private AdminServiceImp adminServiceImp;
+    private UserService userService;
 
-    public WebController(UserServiceImp userServiceImp, AdminServiceImp adminServiceImp) {
-        this.userServiceImp = userServiceImp;
-        this.adminServiceImp = adminServiceImp;
-    }
 
     @GetMapping(path = {"/home", "/", "/index"})
     public String index(Model model) {
-        model.addAttribute("authoritiesUser", userServiceImp.getAllRole());
-        model.addAttribute("authoritiesAdmin", adminServiceImp.getAllRole());
-        model.addAttribute("user", userServiceImp.findByEmail());
+        model.addAttribute("authoritiesUser", userService.getAllRole());
+        model.addAttribute("user", userService.findByEmail());
         return "index";
     }
 
