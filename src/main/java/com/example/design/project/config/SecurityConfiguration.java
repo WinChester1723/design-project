@@ -1,7 +1,7 @@
 package com.example.design.project.config;
 
 import com.example.design.project.model.enums.RoleEnum;
-import com.example.design.project.service.serviceImplements.UserServiceImp;
+import com.example.design.project.service.serviceInterface.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @RequiredArgsConstructor
 public class SecurityConfiguration implements WebMvcConfigurer {
 
-    private UserServiceImp userServiceImp;
+    private UserService userService;
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
 
@@ -33,9 +33,8 @@ public class SecurityConfiguration implements WebMvcConfigurer {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userServiceImp);
+        auth.setUserDetailsService(userService);
         auth.setPasswordEncoder(bCryptPasswordEncoder());
-
         return auth;
     }
 
