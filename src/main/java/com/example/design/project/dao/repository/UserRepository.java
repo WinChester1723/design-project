@@ -1,6 +1,7 @@
 package com.example.design.project.dao.repository;
 
 import com.example.design.project.dao.entity.UserEntity;
+import com.example.design.project.model.enums.RoleEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -26,5 +27,9 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     Boolean existsByUserName(String name);
 
     Boolean existsByUserEmail(String email);
+
+    List<UserEntity> findByRoles(RoleEnum roleEnum);
+
+    void deleteById(int id);
 
 }

@@ -26,17 +26,6 @@ public class UserDto {
     private String userEmail;
     @NotEmpty(message = "Password can not be empty")
     private String userPassword;
-    @NotBlank(message = "Please return password")
-    @Length(min = 8, message = "")
-    private String rPassword;
-
-    public String getsUserPassword() {
-        return userPassword;
-    }
-
-    public void setsUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
 
     public UserDto(String firstName, String lastName, String userEmail) {
         this.firstName = firstName;
@@ -44,11 +33,23 @@ public class UserDto {
         this.userEmail = userEmail;
     }
 
-    public String getrPassword() {
-        return rPassword;
+    public String getsUserPassword() {
+        return userPassword;
     }
 
-    public void setrPassword(String rPassword) {
-        this.rPassword = rPassword;
-    }
+//    @NotBlank(message = "Please return password")
+//    @Length(min = 8, message = "")
+//    private String rPassword;
+
+//    public void setsUserPassword(String userPassword) {
+//        this.userPassword = userPassword;
+//    }
+
+//    public String getrPassword() {
+//        return rPassword;
+//    }
+//
+//    public void setrPassword(String rPassword) {
+//        this.rPassword = rPassword;
+//    }
 }

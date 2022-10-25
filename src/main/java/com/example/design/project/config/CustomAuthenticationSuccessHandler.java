@@ -1,5 +1,6 @@
 package com.example.design.project.config;
 
+import com.example.design.project.model.enums.RoleEnum;
 import com.example.design.project.service.serviceImplements.UserServiceImp;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
@@ -27,17 +28,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
 
-//        System.out.println("\n\nIn customAuthenticationSuccessHandler\n\n");
-//
-//        String userName = authentication.getName();
-//
-//        UserDto userDto = userServiceImp.findByUserName(userName);
-//
-//        HttpSession session = request.getSession();
-//        session.setAttribute("user", userDto);
-//
-//        response.sendRedirect(request.getContextPath() + "/");
-
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<>();
@@ -45,9 +35,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         for (GrantedAuthority g : authorities){
             roles.add(g.getAuthority());
         }
-        if (roles.contains("ROLE_ADMIN")){
+        if (roles.contains(RoleEnum.ADMIN)){
             response.sendRedirect("/admin");
-        } else if (roles.contains("ROLE_USER")) {
+        } else if (roles.contains(RoleEnum.USER)) {
                 response.sendRedirect("/");
         }
     }
