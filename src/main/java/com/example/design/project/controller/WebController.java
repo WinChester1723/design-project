@@ -1,5 +1,6 @@
 package com.example.design.project.controller;
 
+import com.example.design.project.model.UserDto;
 import com.example.design.project.service.serviceImplements.UserServiceImp;
 import com.example.design.project.service.serviceInterface.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/web")
 @RequiredArgsConstructor
 public class WebController {
-    private UserService userService;
+    private final UserService userService;
 
 
     @GetMapping(path = {"/home", "/", "/index"})
-    public String index(Model model) {
+    public String index(Model model, UserDto userDto) {
         model.addAttribute("authoritiesUser", userService.getAllRole());
-        model.addAttribute("user", userService.findByEmail());
+        model.addAttribute("user", userService.findByUserEmail(userDto.getUserEmail()));
         return "index";
     }
 

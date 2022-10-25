@@ -3,19 +3,17 @@ package com.example.design.project.validator;
 import com.example.design.project.dao.entity.UserEntity;
 import com.example.design.project.model.UserDto;
 import com.example.design.project.service.serviceImplements.UserServiceImp;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component
+@RequiredArgsConstructor
 public class UserValidator implements Validator {
 
     private UserServiceImp userServiceImp;
-
-    public UserValidator(UserServiceImp userServiceImp) {
-        this.userServiceImp = userServiceImp;
-    }
 
     @Override
     public boolean supports(Class<?> aClass) {

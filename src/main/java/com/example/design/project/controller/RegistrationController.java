@@ -1,30 +1,26 @@
 package com.example.design.project.controller;
 
 import com.example.design.project.model.UserDto;
-import com.example.design.project.service.serviceImplements.SecurityServiceImp;
-import com.example.design.project.service.serviceImplements.UserServiceImp;
+import com.example.design.project.service.serviceInterface.UserService;
 import com.example.design.project.validator.UserValidator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/registration")
 public class RegistrationController {
 
-    private UserServiceImp userServiceImp;
-    private UserValidator userValidator;
-    private SecurityServiceImp securityServiceImp;
-
-    public RegistrationController(UserServiceImp userServiceImp, UserValidator userValidator,
-                                  SecurityServiceImp securityServiceImp) {
-        this.userServiceImp = userServiceImp;
-        this.userValidator = userValidator;
-        this.securityServiceImp = securityServiceImp;
-    }
+    private final UserService userService;
+    private final UserValidator userValidator;
+//    private SecurityServiceImp securityServiceImp;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
@@ -34,22 +30,21 @@ public class RegistrationController {
 
     @GetMapping("/")
     public String showRegistration(Model model) {
-        if (securityServiceImp.isAuthenticated()) {
-            return "redirect:/";
-        }
-        model.addAttribute("userForm", new UserDto());
-        return "registration";
-    }
 
-    @PostMapping("/add")
-    public String registration(@ModelAttribute("userForm") UserDto userForm, BindingResult bindingResult) {
-        userValidator.validate(userForm, bindingResult);
-        if (bindingResult.hasErrors()) {
+        model.addAttribute("customer",new UserDto());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "registration";
         }
-        userServiceImp.save(userForm);
-        securityServiceImp.autoLogin(userForm.getUserName(), userForm.getUserPassword());
         return "redirect:/";
+    }
+
+    @PostMapping("/add/{id}")
+    public String registration(@ModelAttribute("userDto") UserDto userDto) {
+            userService.addUser(userDto);
+        return "redirect:/registration?success";
+
     }
 
     @GetMapping("/access-denied")
