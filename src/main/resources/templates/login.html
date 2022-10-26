@@ -113,14 +113,14 @@
     <div class="main">
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup">
-            <form method="POST" th:action="@{/authenticateTheUser}" autocomplete="off">
+            <form method="POST" th:action="@{/web/login}" autocomplete="off">
 
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <span class="has-error" th:text="${error}"></span>
-                <span class="has-error" th:text="${message}"></span>
+                <span class="has-error" th:text="${logout}"></span>
 
                 <button>Login</button>
                 <div class="random">

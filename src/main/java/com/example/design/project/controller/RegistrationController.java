@@ -2,7 +2,6 @@ package com.example.design.project.controller;
 
 import com.example.design.project.model.UserDto;
 import com.example.design.project.service.serviceInterface.UserService;
-import com.example.design.project.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
     private final UserService userService;
-    private final UserValidator userValidator;
-//    private SecurityServiceImp securityServiceImp;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
@@ -31,7 +28,7 @@ public class RegistrationController {
     @GetMapping("/")
     public String showRegistration(Model model) {
 
-        model.addAttribute("customer",new UserDto());
+        model.addAttribute("userDto",new UserDto());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
@@ -40,7 +37,7 @@ public class RegistrationController {
         return "redirect:/";
     }
 
-    @PostMapping("/add/{id}")
+    @PostMapping("/add")
     public String registration(@ModelAttribute("userDto") UserDto userDto) {
             userService.addUser(userDto);
         return "redirect:/registration?success";

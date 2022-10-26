@@ -113,7 +113,8 @@
     <div class="main">
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup">
-            <form method="POST" th:object="${userForm}" th:action="@{/registration/add}" autocomplete="off">
+
+            <form method="POST" th:object="${userDto}" th:action="@{/registration/add}" autocomplete="off">
                 <label for="chk" aria-hidden="true">Sign up</label>
 
                 <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="First Name">
