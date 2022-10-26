@@ -19,7 +19,7 @@
 //@Configuration
 //@EnableWebSecurity
 //@RequiredArgsConstructor
-//public class WebSecurityConfiguration implements WebMvcConfigurer {
+//public class WebSecurityConfig implements WebMvcConfigurer {
 //
 //    private UserService userService;
 //    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
