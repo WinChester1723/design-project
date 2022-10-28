@@ -24,9 +24,8 @@
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
-<!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
+    <!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
     <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
-
 </head>
 <body>
 <!-- Header Section Begin -->
@@ -93,32 +92,15 @@
 
 <!-- Breadcrumb Begin -->
 <div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Sing up | Register</h2>
-                    <div class="breadcrumb__links">
-                        <a th:href="@{/web/index}">Home</a>
-                        <span>Register</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb End -->
-<!--zdes ojidaetsa telo-->
-<section class="contact-widget spad">
-    <div class="main">
+    <div class="container" style="padding: 0px 300px 0px 300px;">
+        <!--<section class="contact-widget spad">-->
+        <!--    <div class="main">-->
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup">
 
-            <form method="POST" th:object="${userDto}" th:action="@{/registration/add}" autocomplete="off">
-                <label for="chk" aria-hidden="true">Sign up</label>
-                <div th:if="${param.success}">
-                    <div style="color: #0abde3">User Registration</div>
-                </div>
+            <form method="POST" th:object="${userDto}" th:action="@{/registration/add}" autocomplete="on">
+                <label style="margin: auto; width: 100%; padding: 10px;"
+                       for="chk" aria-hidden="true">Join Our Powerful Community</label>
 
                 <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="First Name">
 
@@ -130,6 +112,9 @@
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
                     <span class="has-error" th:if="${#fields.hasErrors('userName')}">
                     Sorry... username already taken</span>
+
+                    <span class="has-error" th:if="${#fields.hasErrors('userName')}">
+                    Sorry... username already taken</span>
                 </div>
 
                 <input id="email" name="email" type="email" th:field="*{userEmail}" placeholder="Email">
@@ -138,8 +123,7 @@
                     <input id="password" type="password" th:field="*{userPassword}" placeholder="Password">
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
                     <span class="has-error" th:if="${#fields.hasErrors('userPassword')}">
-                    Try one with at least 6 characters.
-                </span>
+                    Try one with at least 6 characters.</span>
                 </div>
 
                 <button>Sign up</button>
@@ -148,7 +132,10 @@
 
         </div>
     </div>
-</section>
+</div>
+<!--    </div>-->
+<!--</section>-->
+</div>
 <!--register END-->
 <!-- Footer Section Begin -->
 <footer class="footer">
@@ -223,6 +210,8 @@
                     <p class="footer__copyright__text">Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
+
+
                         </script>
                         All rights reserved | This template is made with <i class="fas fa-biohazard	"
                                                                             aria-hidden="true"></i> by <a
