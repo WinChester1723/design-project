@@ -1,13 +1,13 @@
 package com.example.design.project.model;
 
+import com.example.design.project.dao.entity.RoleEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -26,17 +26,7 @@ public class UserDto {
     private String userEmail;
     @NotEmpty(message = "Password can not be empty")
     private String userPassword;
-    @NotBlank(message = "Please return password")
-    @Length(min = 8, message = "")
-    private String rPassword;
-
-    public String getsUserPassword() {
-        return userPassword;
-    }
-
-    public void setsUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
+    private Set<RoleEntity> roles;
 
     public UserDto(String firstName, String lastName, String userEmail) {
         this.firstName = firstName;
@@ -44,11 +34,23 @@ public class UserDto {
         this.userEmail = userEmail;
     }
 
-    public String getrPassword() {
-        return rPassword;
-    }
+//    public String getsUserPassword() {
+//        return userPassword;
+//    }
 
-    public void setrPassword(String rPassword) {
-        this.rPassword = rPassword;
-    }
+//    @NotBlank(message = "Please return password")
+//    @Length(min = 8, message = "")
+//    private String rPassword;
+
+//    public void setsUserPassword(String userPassword) {
+//        this.userPassword = userPassword;
+//    }
+
+//    public String getrPassword() {
+//        return rPassword;
+//    }
+//
+//    public void setrPassword(String rPassword) {
+//        this.rPassword = rPassword;
+//    }
 }

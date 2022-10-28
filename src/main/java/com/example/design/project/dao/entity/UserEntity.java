@@ -2,22 +2,23 @@ package com.example.design.project.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_register", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "user_email"))
+@Table(name = "user_table", schema = "art_design", uniqueConstraints = @UniqueConstraint(columnNames = "user_email"))
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private Integer userId;
     @Column(name = "first_name")
     private String firstName;
@@ -34,9 +35,11 @@ public class UserEntity {
     @JoinTable(schema = "art_design", name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<RoleEntity> roles;
+    private List<RoleEntity> roles = new ArrayList<>();
 
-    public UserEntity(String firstName, String lastName, String userName, String userEmail, String userPassword, Set<RoleEntity> roles) {
+
+    public UserEntity(String firstName, String lastName, String userName, String userEmail, String userPassword,
+                      List<RoleEntity> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;

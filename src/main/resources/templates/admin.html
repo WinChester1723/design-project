@@ -1,10 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">-->
+<!--<head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="description" content="Videograph Template">-->
+<!--        <meta name="keywords" content="Videograph, unica, creative, html">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--        <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
 
-</body>
-</html>
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    <title>Art Future | Admin</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=The+Nautigal:wght@700&display=swap"-->
+<!--          rel="stylesheet">-->
+
+<!--        &lt;!&ndash; Google Font &ndash;&gt;-->
+<!--        <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">-->
+<!--        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"-->
+<!--              rel="stylesheet">-->
+
+<!--        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>-->
+<!--&lt;!&ndash;     Css Styles&ndash;&gt;-->
+<!--        <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/font-awesome.min.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/elegant-icons.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/owl.carousel.min.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/magnific-popup.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">-->
+<!--        <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">-->
+<!--        &lt;!&ndash;    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">&ndash;&gt;-->
+<!--        <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">-->
+
+<!--    <title>Admin Panel</title>-->
+<!--</head>-->
+
+<!--<style>-->
+<!--    .container {-->
+<!--        margin-top: 20px;-->
+<!--    }-->
+
+<!--    .logo {-->
+<!--        position: relative;-->
+<!--        color: rgb(108, 34, 177);-->
+<!--        text-decoration: none;-->
+<!--        font-weight: 700;-->
+<!--        font-family: 'Dancing Script', cursive;-->
+<!--    }-->
+
+<!--    .header {-->
+<!--        margin: 20px;-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--    .buttons {-->
+<!--        display: flex;-->
+<!--        justify-content: space-between;-->
+<!--        margin-left: 10px;-->
+<!--    }-->
+
+<!--    .button:hover {-->
+<!--        background-color: rgb(170, 8, 8);-->
+<!--    }-->
+
+<!--    a {-->
+<!--        text-decoration: none;-->
+<!--    }-->
+<!--</style>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--    &lt;!&ndash;     sec:authorize="hasRole('ADMIN')"&ndash;&gt;-->
+<!--    &lt;!&ndash;&gt;&ndash;&gt;-->
+<!--    <div class="header">-->
+<!--        <div class="col-lg-2">-->
+<!--            <div class="header__logo">-->
+<!--                <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""-->
+<!--                                                style="height: 30px"></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <table id="example" class="table table-bordered table-striped" style="width: 100%">-->
+<!--        <thead>-->
+<!--        <tr class=" table table-dark">-->
+<!--            <th>ID</th>-->
+<!--            <th>First Name</th>-->
+<!--            <th>Last Name</th>-->
+<!--            <th>User Name</th>-->
+<!--            <th>Email</th>-->
+<!--            <th>Role</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="ur : ${users}">-->
+<!--            <td th:text="${ur.getUserId()}"/>-->
+<!--            <td th:text="${ur.getFirstName()}"/>-->
+<!--            <td th:text="${ur.getLastName()}"/>-->
+<!--            <td th:text="${ur.getUserName()}"/>-->
+<!--            <td th:text="${ur.getUserEmail()}"/>-->
+<!--            <td th:text="${ur.getRoles()}"/>-->
+
+
+<!--            <td class="buttons">-->
+<!--                <a th:href="@{/admin/editUser}">-->
+<!--                    <button class="button btn-dark">Add</button>-->
+<!--                </a>-->
+
+<!--                <a th:href="${'/admin/edit-users/' + pr.id}">-->
+<!--                    <button class="button btn-dark">Edit</button>-->
+<!--                </a>-->
+
+<!--                <a th:href="${'/admin/delete-users/' + pr.id}">-->
+<!--                    <button class="button btn-dark" name="delete">Delete</button>-->
+<!--                </a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->

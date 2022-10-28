@@ -1,34 +1,83 @@
 package com.example.design.project.config;
 
+import com.example.design.project.model.enums.RoleEnum;
+import com.example.design.project.service.serviceInterface.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class SecurityConfiguration {
 
+        private final UserService userService;
+        private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+
+
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-        final List<GlobalAuthenticationConfigurerAdapter> configurers = new ArrayList<>();
-        configurers.add(new GlobalAuthenticationConfigurerAdapter() {
-                            @Override
-                            public void configure(AuthenticationManagerBuilder auth) throws Exception {
-                                // auth.doSomething()
-                            }
-                        }
-        );
-        return authConfig.getAuthenticationManager();
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.csrf().disable().authorizeHttpRequests()
+                .antMatchers(
+                        "/login/**",
+                        "/css/**",
+                        "/img/**",
+                        "/about/**",
+                        "/static/**",
+                        "/js/**",
+                        "/web/index/**",
+                        "/web/**",
+                        "/portfolio/**",
+                        "/index/**",
+                        "/service/**",
+                        "/art_gallery/**",
+                        "/artist/**",
+                        "/blog-details/**",
+                        "/contact/**"
+                ).permitAll()
+                .antMatchers("/admin/**").hasRole(RoleEnum.ADMIN.name())
+                .antMatchers("/profile/**").hasAnyRole(RoleEnum.USER.name(),RoleEnum.ADMIN.name())
+                .antMatchers("/index").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .successHandler(customAuthenticationSuccessHandler)
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login?logout")
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .and().exceptionHandling().accessDeniedPage("/access-denied");
 
+        return httpSecurity.build();
+    }
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(bCryptPasswordEncoder());
+        return auth;
+    }
+
+    public void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider());
+    }
+
+    @Bean
+        public WebSecurityCustomizer webSecurityCustomizer(){
+            return (web)->web.ignoring().antMatchers("/resources/**","/img/**","/css/**","/js/**");
+        }
 }
