@@ -116,6 +116,9 @@
 
             <form method="POST" th:object="${userDto}" th:action="@{/registration/add}" autocomplete="off">
                 <label for="chk" aria-hidden="true">Sign up</label>
+                <div th:if="${param.success}">
+                    <div style="color: #0abde3">User Registration</div>
+                </div>
 
                 <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="First Name">
 

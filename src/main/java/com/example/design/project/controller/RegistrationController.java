@@ -25,7 +25,7 @@ public class RegistrationController {
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String showRegistration(Model model) {
 
         model.addAttribute("userDto",new UserDto());

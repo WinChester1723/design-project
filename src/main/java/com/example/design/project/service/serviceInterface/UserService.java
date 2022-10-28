@@ -10,6 +10,7 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
     UserDto addUser(UserDto userDto);
+    UserDto addAdmin(UserDto userDto);
     List<String> getAllRole();
     UserDto findByUserEmail(String email);
 //    UserDto findUserByEmail(String userEmail);
