@@ -1,10 +1,12 @@
 package com.example.design.project.service.serviceImplements;
 
+import com.example.design.project.dao.entity.RoleEntity;
 import com.example.design.project.dao.entity.UserEntity;
 import com.example.design.project.dao.repository.RoleRepository;
 import com.example.design.project.dao.repository.UserRepository;
 import com.example.design.project.exception.UserException;
 import com.example.design.project.mapper.UserMapper;
+import com.example.design.project.model.RoleDto;
 import com.example.design.project.model.UpdateUserDto;
 import com.example.design.project.model.UserDto;
 import com.example.design.project.model.enums.ErrorMessageEnum;
@@ -21,16 +23,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImp implements UserService {
     private final UserRepository userRepository;
-//    private final RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
     private final ValidUtilInt validUtilInt;
 
     @Override
@@ -106,6 +106,24 @@ public class UserServiceImp implements UserService {
                 .userName(userDto.getUserName())
                 .userEmail(userDto.getUserEmail())
                 .userPassword(userDto.getUserPassword())
+                .roles(roleRepository.findByRoleName(RoleEnum.USER.name()))
+                .build();
+        userRepository.save(userEntity);
+
+        return UserMapper.INSTANCE.entityToDto(userEntity);
+    }
+
+    @Override
+    @Transactional
+    public UserDto addAdmin(UserDto userDto) {
+
+        var userEntity = UserEntity.builder()
+                .firstName(userDto.getFirstName())
+                .lastName(userDto.getLastName())
+                .userName(userDto.getUserName())
+                .userEmail(userDto.getUserEmail())
+                .userPassword(userDto.getUserPassword())
+                .roles(roleRepository.findByRoleName(RoleEnum.ADMIN.name()))
                 .build();
         userRepository.save(userEntity);
 
