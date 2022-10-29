@@ -1,10 +1,7 @@
 package com.example.design.project.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.*;
@@ -35,11 +32,11 @@ public class UserEntity {
     @JoinTable(schema = "art_design", name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<RoleEntity> roles = new ArrayList<>();
+    private Set<RoleEntity> roles = new HashSet<>();
 
 
     public UserEntity(String firstName, String lastName, String userName, String userEmail, String userPassword,
-                      List<RoleEntity> roles) {
+                      Set<RoleEntity> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;

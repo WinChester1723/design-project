@@ -106,7 +106,7 @@ public class UserServiceImp implements UserService {
                 .userName(userDto.getUserName())
                 .userEmail(userDto.getUserEmail())
                 .userPassword(userDto.getUserPassword())
-                .roles(roleRepository.findByRoleName(RoleEnum.USER.name()))
+//                .roles(roleRepository.)
                 .build();
         userRepository.save(userEntity);
 
@@ -123,7 +123,7 @@ public class UserServiceImp implements UserService {
                 .userName(userDto.getUserName())
                 .userEmail(userDto.getUserEmail())
                 .userPassword(userDto.getUserPassword())
-                .roles(roleRepository.findByRoleName(RoleEnum.ADMIN.name()))
+//                .roles(roleRepository.findByRoleName(RoleEnum.ADMIN.name()))
                 .build();
         userRepository.save(userEntity);
 

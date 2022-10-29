@@ -24,9 +24,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 //    @Query(value = "select * from users_roles ur  join user_register u on ur.user_id=u.user_id " +
 //            "join role r on ur.role_id = r.role_id and r.role_name=?1 ", nativeQuery = true)
     List<UserEntity> findByRoles(String role);
-    Boolean existsByUserName(String name);
-
-    Boolean existsByUserEmail(String email);
 
     List<UserEntity> findByRoles(RoleEnum roleEnum);
 

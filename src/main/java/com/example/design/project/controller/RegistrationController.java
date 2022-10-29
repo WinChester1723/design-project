@@ -1,6 +1,8 @@
 package com.example.design.project.controller;
 
+import com.example.design.project.dao.entity.RoleEntity;
 import com.example.design.project.model.UserDto;
+import com.example.design.project.model.enums.RoleEnum;
 import com.example.design.project.service.serviceInterface.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -12,9 +14,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/registration")
+@RequestMapping("/web")
 public class RegistrationController {
 
     private final UserService userService;
@@ -25,23 +30,32 @@ public class RegistrationController {
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
-    @GetMapping("")
-    public String showRegistration(Model model) {
+    @GetMapping("/registration")
+    public String showRegistration() {//Model model
 
-        model.addAttribute("userDto",new UserDto());
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        model.addAttribute("userDto",new UserDto());
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+//            return "registration";
+//        }
 
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "registration";
-        }
-        return "redirect:/";
+        return "registration";
     }
 
     @PostMapping("/add")
     public String registration(@ModelAttribute("userDto") UserDto userDto) {
-            userService.addUser(userDto);
-        return "redirect:/registration?success";
 
+        userDto.setUserId(0);
+        Set<RoleEntity> roleTest = new HashSet<>();
+        RoleEntity t1 = new RoleEntity(RoleEnum.ADMIN);
+        roleTest.add(t1);
+        userDto.setRoles(roleTest);
+
+        //System.out.println(userDto.toString());
+
+        userService.addUser(userDto);
+        return "redirect:/registration?success";
     }
 
     @GetMapping("/access-denied")

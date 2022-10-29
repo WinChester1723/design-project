@@ -71,8 +71,8 @@
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
                             <li><a th:href="@{/web/profile}">Profile</a>
-                            <li class="active"><a th:href="@{/web/login}">Login</a>
-                            <li><a th:href="@{/registration/}">Registration</a>
+                            <li class="active"><a th:href="@{/signIn/show}">Login</a>
+                            <li><a th:href="@{/signUp/show}">Registration</a>
                             </li>
                         </ul>
                     </nav>
@@ -98,7 +98,12 @@
         <div class="container" style="padding: 0px 300px 0px 300px;">
             <input type="checkbox" id="chk" aria-hidden="true">
             <div class="signup">
-                <form method="POST" th:action="@{/web/login}" autocomplete="off">
+
+<!--                zdes delaem mapping-->
+                <form method="POST"
+                      th:object="${userDTO}"
+                      th:action="@{/signIn/login}"
+                      autocomplete="on">
 
                     <label for="chk" aria-hidden="true">Login</label>
                     <input type="text" name="username" placeholder="Username">
@@ -109,7 +114,7 @@
 
                     <button>Login</button>
                     <div class="random">
-                        <a th:href="@{/registration/}"><p>Create an account</p></a>
+                        <a th:href="@{/signUp/show}"><p>Create an account</p></a>
                     </div>
                 </form>
             </div>

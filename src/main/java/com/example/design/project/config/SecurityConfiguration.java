@@ -45,9 +45,10 @@ public class SecurityConfiguration {
                         "/art_gallery/**",
                         "/artist/**",
                         "/blog-details/**",
-                        "/contact/**"
+                        "/contact/**",
+                        "/registration"
                 ).permitAll()
-                .antMatchers("/admin/**").hasRole(RoleEnum.ADMIN.name())
+//                .antMatchers("/admin/**").hasRole(RoleEnum.ADMIN.name())
                 .antMatchers("/profile/**").hasAnyRole(RoleEnum.USER.name(),RoleEnum.ADMIN.name())
                 .antMatchers("/index").permitAll()
                 .and()
