@@ -26,6 +26,8 @@
     <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
 <!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
     <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/custom_scrollbar.css}" type="text/css"><!-- OrkhanGG -->
+
 
 </head>
 <body>
@@ -71,7 +73,7 @@
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
                             <li><a th:href="@{/web/profile}">Profile</a>
-                            <li class="active"><a th:href="@{/signIn}">Login</a>
+                            <li class="active"><a th:href="@{/signIn}">Sign In</a>
                             <li><a th:href="@{/signUp}">Registration</a>
                             </li>
                         </ul>
@@ -102,17 +104,17 @@
 <!--                zdes delaem mapping-->
                 <form method="POST"
                       th:object="${userDTO}"
-                      th:action="@{/signIn/login}"
+                      th:action="@{/signIn/process}"
                       autocomplete="on">
 
-                    <label for="chk" aria-hidden="true">Login</label>
-                    <input type="text" name="username" placeholder="Username">
-                    <input type="password" name="password" placeholder="Password">
+                    <label for="chk" aria-hidden="true">Sign In</label>
+                    <input type="text" name="userName" placeholder="Username">
+                    <input type="password" name="userPassword" placeholder="Password">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <span class="has-error" th:text="${error}"></span>
                     <span class="has-error" th:text="${logout}"></span>
 
-                    <button>Login</button>
+                    <button>Sign In</button>
                     <div class="random">
                         <a th:href="@{/signUp}"><p>Create an account</p></a>
                     </div>

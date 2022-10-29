@@ -6,10 +6,7 @@ import com.example.design.project.service.serviceInterface.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +25,8 @@ public class SignUpController {
         return "registration";
     }
 
-    @PostMapping("/process")
-    public String signUpProcess(Model model, UserDto userDto){
+    @RequestMapping(value="/process",method = RequestMethod.POST)
+    public String signUpProcess(Model model, @ModelAttribute("userDTO") UserDto userDto){
 
         var userDTObj = RepoTest.GetInstance().userDTORepo;
 
@@ -53,13 +50,14 @@ public class SignUpController {
 
         if(invalidEntrance || existingEntrance)// Error message
         {
-            model.addAttribute("message", "Sorry, you entered bad credentials!");
+            model.addAttribute("message", "Bad Credentials!");
         }else { // Successfully Registered
             RepoTest.GetInstance().userDTORepo.add(userDto);
-            model.addAttribute("message", "Successfully registered!");
+            model.addAttribute("message", "You have successfully signed up!");
+            model.addAttribute("success","true");
         }
-        return "registration";
-    }
 
+        return "inform_user";
+    }
 
 }
