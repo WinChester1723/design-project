@@ -1,12 +1,11 @@
 package com.example.design.project.service.serviceImplements;
 
-import com.example.design.project.dao.entity.RoleEntity;
 import com.example.design.project.dao.entity.UserEntity;
 import com.example.design.project.dao.repository.RoleRepository;
 import com.example.design.project.dao.repository.UserRepository;
 import com.example.design.project.exception.UserException;
 import com.example.design.project.mapper.UserMapper;
-import com.example.design.project.model.RoleDto;
+import com.example.design.project.model.AddUserDto;
 import com.example.design.project.model.UpdateUserDto;
 import com.example.design.project.model.UserDto;
 import com.example.design.project.model.enums.ErrorMessageEnum;
@@ -98,7 +97,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public UserDto addUser(UserDto userDto) {
+    public UserDto addUser(AddUserDto userDto) {
 
         var userEntity = UserEntity.builder()
                 .firstName(userDto.getFirstName())
@@ -115,7 +114,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public UserDto addAdmin(UserDto userDto) {
+    public UserDto addAdmin(AddUserDto userDto) {
 
         var userEntity = UserEntity.builder()
                 .firstName(userDto.getFirstName())

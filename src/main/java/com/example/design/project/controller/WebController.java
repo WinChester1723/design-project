@@ -75,4 +75,5 @@ public class WebController {
     public String wishlist() {
         return "profile";
     }
+
 }

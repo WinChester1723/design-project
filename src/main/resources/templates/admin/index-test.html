@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Videograph Template">
     <meta name="keywords" content="Videograph, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Art Future | Register</title>
+    <title>Art Future | Admin</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
@@ -24,10 +25,17 @@
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
-    <!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
-    <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/profile_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../assets/styles/style.css}" type="text/css">
+
 </head>
+
 <body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
 <!-- Header Section Begin -->
 <header class="header">
     <!--burger menu start-->
@@ -69,9 +77,9 @@
                         <ul>
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
-                            <li><a th:href="@{/web/profile}">Profile</a>
+                            <li class="active"><a th:href="@{/web/profile}">Profile</a>
                             <li><a th:href="@{/signIn}">Login</a>
-                            <li class="active"><a th:href="@{/signUp}">Registration</a>
+                            <li><a th:href="@{/signUp}">Registration</a>
                             </li>
                         </ul>
                     </nav>
@@ -84,6 +92,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -91,69 +101,91 @@
 <!-- Header End -->
 
 <!-- Breadcrumb Begin -->
-<div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-    <div class="container" style="padding: 0px 300px 0px 300px;">
-        <!--<section class="contact-widget spad">-->
-        <!--    <div class="main">-->
-        <input type="checkbox" id="chk" aria-hidden="true">
-        <div class="signup">
+<!--<div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-12 text-center">-->
+<!--        <div class="breadcrumb__text">-->
+<!--          <h2>Profile</h2>-->
+<!--          <div class="breadcrumb__links">-->
+<!--            <a th:href="@{/web/index}">Home</a>-->
+<!--            <span>Profile</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!-- Breadcrumb End -->
 
+<!--tut budet telo profile page-->
+<section class="services-page spad">
+    <div class="container">
+        <div class="row">
+            <!--            <div class="col-lg-4 col-md-6 col-sm-6">-->
 
-            <form method="POST" th:object="${userDto}" th:action="@{/signUp/process}" autocomplete="on">
+            <div class="container">
+                <aside>
+                    <div class="top">
+                        <!--            <div class="header__logo">-->
+                        <!--              <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""-->
+                        <!--                                              style="height: 30px; background-color: #3D3A64"></a>-->
+                        <!--            </div>-->
+                        <div class="close" id="close-btn">
+                            <span class="material-icons-sharp">close</span>
+                        </div>
+                    </div>
+                    <div class="sidebar">
+                        <a href="#" class="active">
+                            <span class="material-icons-sharp">home</span>
+                            <h3>Dashboard</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">face</span>
+                            <h3>Users</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">shopping_cart</span>
+                            <h3>Orders</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">insights</span>
+                            <h3>Analitycs</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">mail</span>
+                            <h3>Messages</h3>
+                            <span class="sidebar-counter">7</span>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">inventory</span>
+                            <h3>Products</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">article</span>
+                            <h3>Reports</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">settings</span>
+                            <h3>Settings</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">add</span>
+                            <h3>Add Products</h3>
+                        </a>
+                        <a href="#">
+                            <span class="material-icons-sharp">logout</span>
+                            <h3>Logout</h3>
+                        </a>
+                    </div>
+                </aside>
+            </div>
 
-                <!--                <div th:if="${message}" th:text="${message}"/>-->
-                <label style="margin: auto; width: 100%; padding: 10px;"
-                       for="chk" aria-hidden="true">Join Our Powerful Community</label>
-
-                <input id="firstName" name="firstName" type="text" placeholder="First Name"
-                       th:field="*{firstName}">
-
-
-                <input id="lastName" name="lastName" type="text" placeholder="Last Name"
-                       th:field="*{lastName}">
-
-
-                <div>
-                    <input id="username" type="text" placeholder="Username" autofocus="true"
-                           th:field="*{userName}">
-
-                    <!--                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
-<!--                    <span class="has-error"-->
-<!--                          th:if="${#fields.hasErrors('userName')}"-->
-<!--                          Sorry... username already taken>-->
-<!--                    </span>-->
-
-<!--                    <span class="has-error"-->
-<!--                          th:if="${#fields.hasErrors('userName')}"-->
-<!--                          Sorry... username already taken>-->
-<!--                    </span>-->
-                </div>
-
-                <input id="email" name="email" type="email" placeholder="Email"
-                       th:field="*{userEmail}">
-
-                <div>
-                    <input id="password" type="password" placeholder="Password"
-                           th:field="*{userPassword}">
-
-                    <!--                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
-<!--                    <span class="has-error"-->
-<!--                          th:if="${#fields.hasErrors('userPassword')}"-->
-<!--                          Try one with at least 6 characters.>-->
-<!--                    </span>-->
-                </div>
-
-                <button>Sign up</button>
-
-            </form>
-
+            <!--            </div>-->
         </div>
     </div>
-</div>
-<!--    </div>-->
-<!--</section>-->
-</div>
-<!--register END-->
+</section>
+
 <!-- Footer Section Begin -->
 <footer class="footer">
     <div class="container">
@@ -193,8 +225,7 @@
                             <li><a href="#">Team</a></li>
                             <li><a href="#">Carrers</a></li>
                             <li><a th:href="@{/web/contact}">Contact us</a></li>
-                            <li><a href="https://witcher.fandom.com/wiki/World_map"
-                                   target="_blank">Locations</a></li>
+                            <li><a href="#">Locations</a></li>
                         </ul>
                     </div>
                 </div>
@@ -214,7 +245,7 @@
                         <h5>Newsletter</h5>
                         <p>Videoprah is an award-winning, full-service production company specializing.</p>
                         <form action="#">
-                            <input type="text" placeholder="Email">
+                            <input type="email" placeholder="Email">
                             <button type="submit"><i class="fa fa-send"></i></button>
                         </form>
                     </div>
@@ -224,11 +255,10 @@
         <div class="footer__copyright">
             <div class="row">
                 <div class="col-lg-12 text-center">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <p class="footer__copyright__text">Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-
-
                         </script>
                         All rights reserved | This template is made with <i class="fas fa-biohazard	"
                                                                             aria-hidden="true"></i> by <a
@@ -250,7 +280,6 @@
 <script th:src="@{../js/jquery.slicknav.js}"></script>
 <script th:src="@{../js/owl.carousel.min.js}"></script>
 <script th:src="@{../js/main.js}"></script>
-<script th:src="@{../js/login.js}"></script>
-<script th:src="@{../js/register.js}"></script>
 </body>
+
 </html>

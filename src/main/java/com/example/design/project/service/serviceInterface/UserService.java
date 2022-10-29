@@ -6,15 +6,17 @@ import com.example.design.project.model.UpdateUserDto;
 import com.example.design.project.model.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
-    UserDto addUser(UserDto userDto);
-    UserDto addAdmin(UserDto userDto);
+    UserDto addUser(AddUserDto userDto);
+    UserDto addAdmin(AddUserDto userDto);
     List<String> getAllRole();
     UserDto findByUserEmail(String email);
 //    UserDto findUserByEmail(String userEmail);
     UserDto findByUserName(String userName);
+
     UserDto updateUser(UpdateUserDto updateUserDto);
     UserDto findById(int id);
     List<UserDto> findAllUsers();
