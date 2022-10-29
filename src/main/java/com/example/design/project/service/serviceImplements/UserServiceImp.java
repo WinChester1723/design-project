@@ -131,8 +131,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public UserDto updateUser(UpdateUserDto updateUserDto) {
-        var userDto = findById(updateUserDto.getUserId());
+    public UserDto updateUser(Integer id, UpdateUserDto updateUserDto) {
+        var userDto = findById(id);
         validUtilInt.validatePassword(userDto.getUserPassword());
         userDto.setFirstName(updateUserDto.getFirstName());
         userDto.setLastName(updateUserDto.getLastName());

@@ -32,6 +32,14 @@ public class SignUpController {
         return "registration";
     }
 
+    @PostMapping("/process")
+    public String signUpProcess(Model model, WebRequest request, AddUserDto addUserDto) {
+        model.addAttribute("addUserDto", addUserDto);
+        userService.addUser(addUserDto);
+
+        return "registration";
+    }
+
 //    @PostMapping("/process")
 //    public String signUpProcess(Model model, UserDto userDto){
 //
@@ -65,16 +73,5 @@ public class SignUpController {
 //        return "registration";
 //    }
 
-    @PostMapping("/process")
-    public String signUpProcess(Model model, WebRequest request, AddUserDto addUserDto){
-        model.addAttribute("addUserDto", addUserDto);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            userService.addUser(addUserDto);
-            return "registration";
-        }
-        return "redirect:/";
-    }
 
 }

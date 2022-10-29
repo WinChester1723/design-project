@@ -17,9 +17,7 @@ public class WebController {
 
 
     @GetMapping(path = { "/", "/index"})
-    public String index(Model model, UserDto userDto) {
-        model.addAttribute("authoritiesUser", userService.getAllRole());
-        model.addAttribute("user", userService.findByUserEmail(userDto.getUserEmail()));
+    public String index() {
         return "index";
     }
 
