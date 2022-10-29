@@ -70,8 +70,8 @@
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
                             <li><a th:href="@{/web/profile}">Profile</a>
-                            <li><a th:href="@{/web/login}">Login</a>
-                            <li class="active"><a th:href="@{/registration/}">Registration</a>
+                            <li><a th:href="@{/signIn/show}">Login</a>
+                            <li class="active"><a th:href="@{/signUp/show}">Registration</a>
                             </li>
                         </ul>
                     </nav>
@@ -98,32 +98,51 @@
         <input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup">
 
-            <form method="POST" th:object="${userDto}" th:action="@{/registration/add}" autocomplete="on">
+
+            <!--            zdes delaem mapping dla registratsii-->
+            <form method="POST" autocomplete="on">
+<!--                th:object="${userDTO}"-->
+<!--                th:action="@{/signUp/processor}"-->
                 <label style="margin: auto; width: 100%; padding: 10px;"
                        for="chk" aria-hidden="true">Join Our Powerful Community</label>
 
-                <input id="firstName" name="firstName" type="text" th:field="*{firstName}" placeholder="First Name">
+                <input id="firstName" name="firstName" type="text" placeholder="First Name">
+<!--                       th:field="*{firstName}"-->
 
-                <input id="lastName" name="lastName" type="text" th:field="*{lastName}" placeholder="Last Name">
+
+                <input id="lastName" name="lastName" type="text" placeholder="Last Name">
+<!--                       th:field="*{lastName}"-->
+
 
                 <div>
-                    <input id="username" type="text" th:field="*{userName}" placeholder="Username" autofocus="true">
+                    <input id="username" type="text" placeholder="Username" autofocus="true">
+<!--                           th:field="*{userName}"-->
+
 
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
-                    <span class="has-error" th:if="${#fields.hasErrors('userName')}">
-                    Sorry... username already taken</span>
+                    <span class="has-error" >
+<!--                        th:if="${#fields.hasErrors('userName')}"-->
+<!--                    Sorry... username already taken-->
+                    </span>
 
-                    <span class="has-error" th:if="${#fields.hasErrors('userName')}">
-                    Sorry... username already taken</span>
+                    <span class="has-error" >
+<!--                        th:if="${#fields.hasErrors('userName')}"-->
+<!--                    Sorry... username already taken-->
+                    </span>
                 </div>
 
-                <input id="email" name="email" type="email" th:field="*{userEmail}" placeholder="Email">
+                <input id="email" name="email" type="email"placeholder="Email">
+<!--                         th:field="*{userEmail}"-->
 
                 <div>
-                    <input id="password" type="password" th:field="*{userPassword}" placeholder="Password">
+                    <input id="password" type="password" placeholder="Password">
+<!--                           th:field="*{userPassword}"-->
+
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
-                    <span class="has-error" th:if="${#fields.hasErrors('userPassword')}">
-                    Try one with at least 6 characters.</span>
+                    <span class="has-error" >
+<!--                        th:if="${#fields.hasErrors('userPassword')}"-->
+<!--                    Try one with at least 6 characters.-->
+                    </span>
                 </div>
 
                 <button>Sign up</button>
