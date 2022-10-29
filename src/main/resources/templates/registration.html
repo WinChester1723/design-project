@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Videograph Template">
-    <meta name="keywords" content="Videograph, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="Videograph Template" name="description">
+    <meta content="Videograph, unica, creative, html" name="keywords">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Art Future | Register</title>
 
     <!-- Google Font -->
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script crossorigin='anonymous' src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <!-- Css Styles -->
     <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
@@ -26,6 +26,8 @@
     <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
     <!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
     <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/custom_scrollbar.css}" type="text/css"><!-- OrkhanGG -->
+
 </head>
 <body>
 <!-- Header Section Begin -->
@@ -59,7 +61,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                    <a th:href="@{/web/index}"><img alt="" src="/images/fon/image_2022-08-21_08-35-45.png"
                                                     style="height: 30px"></a>
                 </div>
             </div>
@@ -70,7 +72,7 @@
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
                             <li><a th:href="@{/web/profile}">Profile</a>
-                            <li><a th:href="@{/signIn}">Login</a>
+                            <li><a th:href="@{/signIn}">Sign In</a>
                             <li class="active"><a th:href="@{/signUp}">Registration</a>
                             </li>
                         </ul>
@@ -95,54 +97,47 @@
     <div class="container" style="padding: 0px 300px 0px 300px;">
         <!--<section class="contact-widget spad">-->
         <!--    <div class="main">-->
-        <input type="checkbox" id="chk" aria-hidden="true">
+        <input aria-hidden="true" id="chk" type="checkbox">
         <div class="signup">
 
 
-            <form method="POST" th:object="${userDTO}" th:action="@{/signUp/process}" autocomplete="on">
-<!--                th:object="${userDTO}"-->
-<!--                th:action="@{/signUp/processor}"-->
+            <form autocomplete="on" method="POST" th:action="@{/signUp/process}" th:object="${userDTO}">
 
-                <div th:if="${message}" th:text="${message}"/>
-                <label style="margin: auto; width: 100%; padding: 10px;"
-                       for="chk" aria-hidden="true">Join Our Powerful Community</label>
+                <label aria-hidden="true"
+                       for="chk" style="margin: auto; width: 100%; padding: 10px;">Join Our Powerful Community</label>
 
-                <input id="firstName" name="firstName" type="text" placeholder="First Name">
-<!--                       th:field="*{firstName}"-->
+                <input id="firstName" name="firstName" placeholder="First Name" type="text">
 
 
-                <input id="lastName" name="lastName" type="text" placeholder="Last Name">
-<!--                       th:field="*{lastName}"-->
+                <input id="lastName" name="lastName" placeholder="Last Name" type="text">
 
 
                 <div>
-                    <input id="username" type="text" placeholder="Username" autofocus="true">
-<!--                           th:field="*{userName}"-->
-
+                    <input autofocus="true" id="userName" name="userName" placeholder="Username" type="text">
 
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
-                    <span class="has-error" >
+                    <span class="has-error">
 <!--                        th:if="${#fields.hasErrors('userName')}"-->
-<!--                    Sorry... username already taken-->
+                        <!--                    Sorry... username already taken-->
                     </span>
 
-                    <span class="has-error" >
+                    <span class="has-error">
 <!--                        th:if="${#fields.hasErrors('userName')}"-->
-<!--                    Sorry... username already taken-->
+                        <!--                    Sorry... username already taken-->
                     </span>
                 </div>
 
-                <input id="email" name="email" type="email"placeholder="Email">
-<!--                         th:field="*{userEmail}"-->
+                <input id="userEmail" name="userEmail" placeholder="Email" type="email">
+                <!--                         -->
 
                 <div>
-                    <input id="password" type="password" placeholder="Password">
-<!--                           th:field="*{userPassword}"-->
+                    <input id="userPassword" name="userPassword" placeholder="Password" type="text">
+                    <!--                           t-->
 
                     <!--                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
-                    <span class="has-error" >
+                    <span class="has-error">
 <!--                        th:if="${#fields.hasErrors('userPassword')}"-->
-<!--                    Try one with at least 6 characters.-->
+                        <!--                    Try one with at least 6 characters.-->
                     </span>
                 </div>
 
@@ -164,7 +159,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="footer__top__logo">
-                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                        <a th:href="@{/web/index}"><img alt="" src="/images/fon/image_2022-08-21_08-35-45.png"
                                                         style="height: 30px"></a>
                     </div>
                 </div>
@@ -186,7 +181,7 @@
                         <h5>About us</h5>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been...</p>
-                        <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
+                        <a class="read__more" href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3">
@@ -217,7 +212,7 @@
                         <h5>Newsletter</h5>
                         <p>Videoprah is an award-winning, full-service production company specializing.</p>
                         <form action="#">
-                            <input type="text" placeholder="Email">
+                            <input placeholder="Email" type="text">
                             <button type="submit"><i class="fa fa-send"></i></button>
                         </form>
                     </div>
@@ -232,9 +227,11 @@
                             document.write(new Date().getFullYear());
 
 
+
+
                         </script>
-                        All rights reserved | This template is made with <i class="fas fa-biohazard	"
-                                                                            aria-hidden="true"></i> by <a
+                        All rights reserved | This template is made with <i aria-hidden="true"
+                                                                            class="fas fa-biohazard	"></i> by <a
                                 href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
                     </p>
                 </div>

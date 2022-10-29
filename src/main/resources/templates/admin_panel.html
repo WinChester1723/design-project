@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Videograph Template">
-    <meta name="keywords" content="Videograph, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Art Future | Services</title>
+    <meta content="Videograph Template" name="description">
+    <meta content="Videograph, unica, creative, html" name="keywords">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Art Future | Register</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <script crossorigin='anonymous' src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <!-- Css Styles -->
     <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" type="text/css">
@@ -24,16 +24,13 @@
     <link rel="stylesheet" th:href="@{../css/slicknav.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/style.css}" type="text/css">
     <link rel="stylesheet" th:href="@{../css/other_style.css}" type="text/css">
+    <!--    <link rel="stylesheet" th:href="@{../css/login_style.css}" type="text/css">-->
+    <link rel="stylesheet" th:href="@{../css/register_style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{../css/special_link.css}" type="text/css"><!-- OrkhanGG -->
+    <link rel="stylesheet" th:href="@{../css/table.css}" type="text/css"><!-- OrkhanGG -->
     <link rel="stylesheet" th:href="@{../css/custom_scrollbar.css}" type="text/css"><!-- OrkhanGG -->
-
 </head>
-
 <body>
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
 <!-- Header Section Begin -->
 <header class="header">
     <!--burger menu start-->
@@ -65,7 +62,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                    <a th:href="@{/web/index}"><img alt="" src="/images/fon/image_2022-08-21_08-35-45.png"
                                                     style="height: 30px"></a>
                 </div>
             </div>
@@ -76,8 +73,8 @@
                             <li><a th:href="@{/web/artist}">Artist</a>
                             <li><a th:href="@{/web/portfolio}">Portfolio</a></li>
                             <li><a th:href="@{/web/profile}">Profile</a>
-                            <li><a th:href="@{/signIn}">Login</a>
-                            <li><a th:href="@{/signUp}">Registration</a>
+                            <li><a th:href="@{/signIn}">Sign In</a>
+                            <li class="active"><a th:href="@{/signUp}">Registration</a>
                             </li>
                         </ul>
                     </nav>
@@ -94,135 +91,53 @@
         <div id="mobile-menu-wrap"></div>
     </div>
 </header>
-<!-- Header End -->
 
-<!-- Breadcrumb Begin -->
 <div class="breadcrumb-option spad set-bg" data-setbg="/img/breadcrumb-bg.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="breadcrumb__text">
-                    <h2>Our Sevices</h2>
-                    <div class="breadcrumb__links">
-                        <a th:href="@{/web/index}">Home</a>
-                        <span>Services</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <div th:if="${ not#lists.isEmpty(userDTOs)}">
+
+        <table class="table table-dark" style="background-color: rgba(26, 26, 110, 0.1) !important;">
+            <thead class="text-center">
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody class="text-center">
+            <tr th:each="dto : ${userDTOs}">
+
+                <td th:text="${dto.firstName}"></td>
+                <td th:text="${dto.lastName}"></td>
+                <td th:text="${dto.userName}"></td>
+                <td th:text="${dto.userEmail}"></td>
+                <td th:text="${dto.userPassword}"></td>
+
+                <td>
+                    <form method="post" th:action="@{/admin_panel/}" th:object="${userDTOToDelete}">
+                        <input name="firstName" th:value="${dto.firstName}" type="hidden">
+                        <input name="lastName" th:value="${dto.lastName}" type="hidden">
+                        <input name="userName" th:value="${dto.userName}" type="hidden">
+                        <input name="userEmail" th:value="${dto.userEmail}" type="hidden">
+                        <input name="userPassword" th:value="${dto.userPassword}" type="hidden">
+                        <button style="display: block;margin: auto;" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+            <tbody>
+        </table>
+
     </div>
 </div>
-<!-- Breadcrumb End -->
-
-<!-- Services Section Begin -->
-<section class="services-page spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-2.png" alt="">
-                    </div>
-                    <h4>Scriptwriting and editing</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-1.png" alt="">
-                    </div>
-                    <h4>Motion graphics</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-2.png" alt="">
-                    </div>
-                    <h4>Scriptwriting and editing</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-3.png" alt="">
-                    </div>
-                    <h4>Video distribution</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-4.png" alt="">
-                    </div>
-                    <h4>Video hosting</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services__item">
-                    <div class="services__item__icon">
-                        <img src="/img/icons/si-4.png" alt="">
-                    </div>
-                    <h4>Video hosting</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Services Section End -->
-
-<!-- Call To Action Section Begin -->
-<section class="callto sp__callto">
-    <div class="container">
-        <div class="callto__services spad set-bg" data-setbg="/img/calltos-bg.jpg">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <div class="callto__text">
-                        <h2>CREATE AWESOME VIDEOS WITH WIDEO’S POWERFUL FEATURES</h2>
-                        <p>Wideo combines all the features you need to easily create professional videos and
-                            presentations</p>
-                        <a href="#">Start your stories</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Call To Action Section End -->
-
-<!-- Logo Begin -->
-<div class="logo spad">
-    <div class="container">
-        <div class="logo__carousel owl-carousel">
-            <a href="#" class="logo__item"><img src="/img/logo/logo-1.png" alt=""></a>
-            <a href="#" class="logo__item"><img src="/img/logo/logo-2.png" alt=""></a>
-            <a href="#" class="logo__item"><img src="/img/logo/logo-3.png" alt=""></a>
-            <a href="#" class="logo__item"><img src="/img/logo/logo-4.png" alt=""></a>
-            <a href="#" class="logo__item"><img src="/img/logo/logo-5.png" alt=""></a>
-            <a href="#" class="logo__item"><img src="/img/logo/logo-6.png" alt=""></a>
-        </div>
-    </div>
+<!--    </div>-->
+<!--</section>-->
 </div>
-<!-- Logo End -->
-
+<!--register END-->
 <!-- Footer Section Begin -->
 <footer class="footer">
     <div class="container">
@@ -230,7 +145,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="footer__top__logo">
-                        <a th:href="@{/web/index}"><img src="/images/fon/image_2022-08-21_08-35-45.png" alt=""
+                        <a th:href="@{/web/index}"><img alt="" src="/images/fon/image_2022-08-21_08-35-45.png"
                                                         style="height: 30px"></a>
                     </div>
                 </div>
@@ -252,7 +167,7 @@
                         <h5>About us</h5>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been...</p>
-                        <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
+                        <a class="read__more" href="#">Read more <span class="arrow_right"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3">
@@ -283,7 +198,7 @@
                         <h5>Newsletter</h5>
                         <p>Videoprah is an award-winning, full-service production company specializing.</p>
                         <form action="#">
-                            <input type="email" placeholder="Email">
+                            <input placeholder="Email" type="text">
                             <button type="submit"><i class="fa fa-send"></i></button>
                         </form>
                     </div>
@@ -293,16 +208,21 @@
         <div class="footer__copyright">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <p class="footer__copyright__text">Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
+
+
+
+
+
+
+
                         </script>
-                        All rights reserved | This template is made with <i class="fas fa-biohazard	"
-                                                                            aria-hidden="true"></i> by <a
+                        All rights reserved | This template is made with <i aria-hidden="true"
+                                                                            class="fas fa-biohazard	"></i> by <a
                                 href="https://github.com/WinChester1723" target="_blank">WinChester1723</a>
                     </p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
             </div>
         </div>
@@ -319,6 +239,8 @@
 <script th:src="@{../js/jquery.slicknav.js}"></script>
 <script th:src="@{../js/owl.carousel.min.js}"></script>
 <script th:src="@{../js/main.js}"></script>
+<script th:src="@{../js/login.js}"></script>
+<script th:src="@{../js/register.js}"></script>
+<script th:src="@{../js/error.js}"></script> <!-- OrkhanGG -->
 </body>
-
 </html>
