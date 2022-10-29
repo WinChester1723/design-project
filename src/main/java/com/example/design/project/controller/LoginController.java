@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/web")
 @RequiredArgsConstructor
+@Deprecated
 public class LoginController {
     private UserService userService;
 
