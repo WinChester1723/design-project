@@ -13,7 +13,7 @@ public class SignInController {
 
     private final UserService userService;
 
-    @GetMapping("/show")
+    @GetMapping()
     public String displaySignInPage(){
         return "login";
     }
